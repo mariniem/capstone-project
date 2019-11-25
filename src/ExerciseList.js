@@ -13,6 +13,7 @@ export default function ExerciseList() {
             title={exercise.title}
             description={exercise.description}
             image={exercise.image}
+            key={exercise.id}
           />
         )
       })}

@@ -2,51 +2,61 @@
   {
     "title": "Squats",
     "description": "Move your body.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/Placeholder.jpg",
+    "id": "1"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/PlaceholderTwo.jpg",
+    "id": "2"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/Placeholder.jpg",
+    "id": "3"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/Placeholder.jpg",
+    "id": "4"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/Placeholder.jpg",
+    "id": "5"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/Placeholder.jpg",
+    "id": "6"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/Placeholder.jpg",
+    "id": "7"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/Placeholder.jpg",
+    "id": "8"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/Placeholder.jpg",
+    "id": "9"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "Placeholder.jpg"
+    "image": "/pictures/Placeholder.jpg",
+    "id": "10"
   }
 ]
