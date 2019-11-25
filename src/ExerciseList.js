@@ -2,14 +2,14 @@ import styled from 'styled-components/macro'
 import React from 'react'
 import PropTypes from 'prop-types'
 import exerciseData from './exercises.json'
-import ExerciseCard from './ExerciseCard'
+import Exercise from './Exercise'
 
 export default function ExerciseList() {
   return (
     <Grid>
       {exerciseData.map(exercise => {
         return (
-          <ExerciseCard
+          <Exercise
             title={exercise.title}
             description={exercise.description}
             image={exercise.image}
