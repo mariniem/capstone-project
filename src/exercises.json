@@ -2,61 +2,61 @@
   {
     "title": "Squats",
     "description": "Move your body.",
-    "image": "/pictures/Placeholder.jpg",
+    "image": "/pictures/Squats.jpg",
     "id": "1"
   },
   {
-    "title": "Sit-ups",
+    "title": "High Lunge",
     "description": "Move your stomach.",
-    "image": "/pictures/PlaceholderTwo.jpg",
+    "image": "/pictures/HighLunge.jpg",
     "id": "2"
   },
   {
-    "title": "Sit-ups",
+    "title": "Kickbacks",
     "description": "Move your stomach.",
-    "image": "/pictures/Placeholder.jpg",
+    "image": "/pictures/Kickbacks.jpg",
     "id": "3"
   },
   {
-    "title": "Sit-ups",
+    "title": "Kickback with stretched legs",
     "description": "Move your stomach.",
-    "image": "/pictures/Placeholder.jpg",
+    "image": "/pictures/KickbacksLegStretched.jpg",
     "id": "4"
   },
   {
-    "title": "Sit-ups",
+    "title": "King Dancer",
     "description": "Move your stomach.",
-    "image": "/pictures/Placeholder.jpg",
+    "image": "/pictures/KingDancer.jpg",
     "id": "5"
   },
   {
-    "title": "Sit-ups",
+    "title": "Lunges",
     "description": "Move your stomach.",
-    "image": "/pictures/Placeholder.jpg",
+    "image": "/pictures/Lunges.jpg",
     "id": "6"
   },
   {
-    "title": "Sit-ups",
+    "title": "Plank",
     "description": "Move your stomach.",
-    "image": "/pictures/Placeholder.jpg",
+    "image": "/pictures/Plank.jpg",
     "id": "7"
   },
   {
-    "title": "Sit-ups",
+    "title": "Side Plank",
     "description": "Move your stomach.",
-    "image": "/pictures/Placeholder.jpg",
+    "image": "/pictures/SidePlank.jpg",
     "id": "8"
   },
   {
     "title": "Sit-ups",
     "description": "Move your stomach.",
-    "image": "/pictures/Placeholder.jpg",
+    "image": "/pictures/Sit-ups.jpg",
     "id": "9"
   },
   {
-    "title": "Sit-ups",
+    "title": "Spiderman Crunch",
     "description": "Move your stomach.",
-    "image": "/pictures/Placeholder.jpg",
+    "image": "/pictures/SpidermanCrunch.jpg",
     "id": "10"
   }
 ]
