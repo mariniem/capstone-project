@@ -1,16 +1,50 @@
 import styled from 'styled-components/macro'
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import ExerciseButton from './ExerciseButton'
+import ArrowDown from './Icons/Arrow down.svg'
+import ArrowUp from './Icons/Arrow up.svg'
 
-export default function Exercise({ title, description, image }) {
+export default function Exercise({
+  title,
+  description,
+  image,
+  isDescritionShown,
+}) {
+  const [isDescriptionShown, setIsDescriptionShwon] = useState(false)
+
+  const onButtonClick = () => setIsDescriptionShwon(!isDescriptionShown)
+  const button = isDescriptionShown ? ArrowDown : ArrowUp
+  /* const toggleDescription = (Title = { title }),
+    Description = { description } */
+
   return (
     <ExerciseWrapper>
       <ExerciseImages src={image} />
-      <ExerciseButton />
+      <ExerciseButton src={button} onClick={onButtonClick}></ExerciseButton>
+      <DescriptionWrapper>
+        {isDescriptionShown ? description : ''}
+      </DescriptionWrapper>
     </ExerciseWrapper>
   )
 }
+
+const DescriptionWrapper = styled.div`
+  background: white;
+  border: 2px solid #647d91;
+  position: absolute;
+  height: 80px;
+  width: 150px;
+  bottom: -50px;
+  z-index: 100;
+`
+
+const Title = styled.p`
+  color: black;
+`
+const Description = styled.p`
+  color: black;
+`
 
 const ExerciseWrapper = styled.section`
   border-radius: 5px;
