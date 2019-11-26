@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Squats",
+    "description": "Move your body.",
+    "image": "/pictures/Squats.jpg",
+    "id": "1"
+  },
+  {
+    "title": "High Lunge",
+    "description": "Move your stomach.",
+    "image": "/pictures/HighLunge.jpg",
+    "id": "2"
+  },
+  {
+    "title": "Kickbacks",
+    "description": "Move your stomach.",
+    "image": "/pictures/Kickbacks.jpg",
+    "id": "3"
+  },
+  {
+    "title": "Kickback with stretched legs",
+    "description": "Move your stomach.",
+    "image": "/pictures/KickbacksLegStretched.jpg",
+    "id": "4"
+  },
+  {
+    "title": "King Dancer",
+    "description": "Move your stomach.",
+    "image": "/pictures/KingDancer.jpg",
+    "id": "5"
+  },
+  {
+    "title": "Lunges",
+    "description": "Move your stomach.",
+    "image": "/pictures/Lunges.jpg",
+    "id": "6"
+  },
+  {
+    "title": "Plank",
+    "description": "Move your stomach.",
+    "image": "/pictures/Plank.jpg",
+    "id": "7"
+  },
+  {
+    "title": "Side Plank",
+    "description": "Move your stomach.",
+    "image": "/pictures/SidePlank.jpg",
+    "id": "8"
+  },
+  {
+    "title": "Sit-ups",
+    "description": "Move your stomach.",
+    "image": "/pictures/Sit-ups.jpg",
+    "id": "9"
+  },
+  {
+    "title": "Spiderman Crunch",
+    "description": "Move your stomach.",
+    "image": "/pictures/SpidermanCrunch.jpg",
+    "id": "10"
+  }
+]
