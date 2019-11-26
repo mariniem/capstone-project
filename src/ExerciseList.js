@@ -26,7 +26,5 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
   margin: 40px;
   row-gap: 40px;
-  column-gap: 60px;
-  justify-items: center;
-  align-content: center;
+  margin-right: 10px;
 `

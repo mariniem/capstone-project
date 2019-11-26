@@ -7,7 +7,7 @@ export default function Exercise({ title, description, image }) {
     <ExerciseWrapper>
       <img
         src={image}
-        style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+        style={{ width: '120px', height: '120px', objectFit: 'cover' }}
       />
     </ExerciseWrapper>
   )
