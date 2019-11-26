@@ -1,26 +1,16 @@
 import styled from 'styled-components/macro'
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import ArrowDown from './Icons/Arrow down.svg'
-import ArrowUp from './Icons/Arrow up.svg'
+import ExerciseButton from './ExerciseButton'
 
 export default function Exercise({ title, description, image }) {
-  const [isDescriptionShown, setIsDescriptionShwon] = useState(false)
-
-  const button = isDescriptionShown ? ArrowDown : ArrowUp
-  const onButtonClick = () => setIsDescriptionShwon(!isDescriptionShown)
-
   return (
     <ExerciseWrapper>
       <ExerciseImages src={image} />
-      <ExerciseButton src={button} onClick={onButtonClick}></ExerciseButton>
+      <ExerciseButton />
     </ExerciseWrapper>
   )
 }
-
-const ExerciseButton = styled.img`
-  color: black;
-`
 
 const ExerciseWrapper = styled.section`
   border-radius: 5px;
@@ -29,12 +19,15 @@ const ExerciseWrapper = styled.section`
   position: relative;
   width: 120px;
   height: 120px;
+  position: relative;
 `
 
 const ExerciseImages = styled.img`
   width: 120px;
   height: 120px;
   object-fit: cover;
+  position: absolute;
+  z-index: -100;
 `
 
 Exercise.propTypes = {

@@ -15,7 +15,6 @@ export default function ExerciseList() {
             description={exercise.description}
             image={exercise.image}
             key={exercise.id}
-            button={exercise.button}
           />
         )
       })}
