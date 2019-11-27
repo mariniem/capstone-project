@@ -9,7 +9,7 @@ export default function Exercise({ title, description, image }) {
   const [isDescriptionShown, setIsDescriptionShwon] = useState(false)
 
   const onButtonClick = () => setIsDescriptionShwon(!isDescriptionShown)
-  const button = isDescriptionShown ? ArrowDown : ArrowUp
+  const button = isDescriptionShown ? '' : ArrowUp
 
   return (
     <ExerciseWrapper>
@@ -28,8 +28,6 @@ export default function Exercise({ title, description, image }) {
 }
 
 const DescriptionWrapper = styled.div`
-  /* background: white; */
-  /*  border: 2px solid #647d91; */
   position: absolute;
   height: auto;
   width: 150px;
@@ -39,6 +37,7 @@ const DescriptionWrapper = styled.div`
   border-radius: 3px;
   box-shadow: 0 5px 20px #0002;
   background: #647d91;
+  opacity: 0.9;
 
   &: after {
     content: '';
@@ -47,6 +46,7 @@ const DescriptionWrapper = styled.div`
     border-bottom-color: #647d91;
     bottom: 100%;
     left: 10%;
+    opacity: 0.9;
   }
 `
 
