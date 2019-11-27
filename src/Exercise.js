@@ -1,81 +1,19 @@
 import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import ExerciseButton from './ExerciseButton'
-import ArrowUp from './Icons/Arrow up.svg'
+import ToggleDescription from './ToggleTitleDescription'
 
 export default function Exercise({ title, description, image }) {
-  const [isDescriptionShown, setIsDescriptionShwon] = useState(false)
-
-  const onButtonClick = () => setIsDescriptionShwon(!isDescriptionShown)
-  const showButton = isDescriptionShown ? '' : ArrowUp
-
   return (
     <ExerciseWrapper>
       <ExerciseImages src={image} />
-      <ExerciseButton src={showButton} onClick={onButtonClick}></ExerciseButton>
-      {isDescriptionShown ? (
-        <DescriptionWrapper onButtonClick={!isDescriptionShown}>
-          <Title>{title}</Title>
-          <DescriptionButton onClick={onButtonClick}>x</DescriptionButton>
-          <Description>{description}</Description>
-        </DescriptionWrapper>
-      ) : (
-        ''
-      )}
+      <ToggleDescription
+        title={title}
+        description={description}
+      ></ToggleDescription>
     </ExerciseWrapper>
   )
 }
-
-const DescriptionButton = styled.button`
-  color: #f2f2f2;
-  position: absolute;
-  right: 5%;
-  top: 3%;
-  background: transparent;
-  border: none;
-  font-weight: bold;
-`
-
-const DescriptionWrapper = styled.div`
-  position: absolute;
-  height: auto;
-  width: 150px;
-  bottom: -100px;
-  z-index: 100;
-  position: relative;
-  border-radius: 3px;
-  box-shadow: 0 5px 20px #0002;
-  background: #647d91;
-  opacity: 0.9;
-
-  &: after {
-    content: '';
-    position: absolute;
-    border: 10px solid transparent;
-    border-bottom-color: #647d91;
-    bottom: 100%;
-    left: 10%;
-    opacity: 0.9;
-  }
-`
-
-const Title = styled.p`
-  color: #f2f2f2;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: 'Nunito', sans-serif;
-  padding-top: 20px;
-  margin: 5px;
-  position: relative;
-`
-const Description = styled.p`
-  color: #f2f2f2;
-  font-size: 10px;
-  font-family: 'Nunito', sans-serif;
-  margin: 5px;
-  padding: 5px;
-`
 
 const ExerciseWrapper = styled.section`
   border-radius: 5px;
