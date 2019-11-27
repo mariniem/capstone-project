@@ -5,7 +5,7 @@ import exerciseData from './exercises.json'
 import Exercise from './Exercise'
 
 //return evtl raus????
-export default function ExerciseList() {
+export default function ExerciseList({ heartOnClick, isLiked }) {
   return (
     <Grid>
       {exerciseData.map(exercise => {
@@ -15,6 +15,8 @@ export default function ExerciseList() {
             description={exercise.description}
             image={exercise.image}
             key={exercise.id}
+            heartOnClick={heartOnClick}
+            isLiked={isLiked}
           />
         )
       })}
