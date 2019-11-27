@@ -2,22 +2,22 @@ import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import ExerciseButton from './ExerciseButton'
-import ArrowDown from './Icons/Arrow down.svg'
 import ArrowUp from './Icons/Arrow up.svg'
 
 export default function Exercise({ title, description, image }) {
   const [isDescriptionShown, setIsDescriptionShwon] = useState(false)
 
   const onButtonClick = () => setIsDescriptionShwon(!isDescriptionShown)
-  const button = isDescriptionShown ? '' : ArrowUp
+  const showButton = isDescriptionShown ? '' : ArrowUp
 
   return (
     <ExerciseWrapper>
       <ExerciseImages src={image} />
-      <ExerciseButton src={button} onClick={onButtonClick}></ExerciseButton>
+      <ExerciseButton src={showButton} onClick={onButtonClick}></ExerciseButton>
       {isDescriptionShown ? (
         <DescriptionWrapper onButtonClick={!isDescriptionShown}>
           <Title>{title}</Title>
+          <DescriptionButton onClick={onButtonClick}>x</DescriptionButton>
           <Description>{description}</Description>
         </DescriptionWrapper>
       ) : (
@@ -26,6 +26,16 @@ export default function Exercise({ title, description, image }) {
     </ExerciseWrapper>
   )
 }
+
+const DescriptionButton = styled.button`
+  color: #f2f2f2;
+  position: absolute;
+  right: 5%;
+  top: 3%;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+`
 
 const DescriptionWrapper = styled.div`
   position: absolute;
@@ -55,8 +65,9 @@ const Title = styled.p`
   font-size: 12px;
   font-weight: bold;
   font-family: 'Nunito', sans-serif;
-  padding-top: 10px;
+  padding-top: 20px;
   margin: 5px;
+  position: relative;
 `
 const Description = styled.p`
   color: #f2f2f2;
