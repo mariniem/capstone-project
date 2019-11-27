@@ -1,11 +1,16 @@
 import styled from 'styled-components/macro'
 import React from 'react'
 import PropTypes from 'prop-types'
+import ToggleDescription from './ToggleTitleDescription'
 
 export default function Exercise({ title, description, image }) {
   return (
     <ExerciseWrapper>
       <ExerciseImages src={image} />
+      <ToggleDescription
+        title={title}
+        description={description}
+      ></ToggleDescription>
     </ExerciseWrapper>
   )
 }
@@ -17,12 +22,15 @@ const ExerciseWrapper = styled.section`
   position: relative;
   width: 120px;
   height: 120px;
+  position: relative;
 `
 
 const ExerciseImages = styled.img`
   width: 120px;
   height: 120px;
   object-fit: cover;
+  position: absolute;
+  z-index: -100;
 `
 
 Exercise.propTypes = {

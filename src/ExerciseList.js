@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import exerciseData from './exercises.json'
 import Exercise from './Exercise'
 
+//return evtl raus????
 export default function ExerciseList() {
   return (
     <Grid>
