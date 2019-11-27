@@ -13,20 +13,30 @@ export default function Exercise({
   isLiked,
 }) {
   return (
-    <ExerciseWrapper>
-      <ExerciseImages src={image} />
-      <HeartBookmark
-        heartOnClick={heartOnClick}
-        src={showLike}
-        isLiked={isLiked}
-      ></HeartBookmark>
-      <ToggleDescription
-        title={title}
-        description={description}
-      ></ToggleDescription>
-    </ExerciseWrapper>
+    <Grid>
+      <ExerciseWrapper>
+        <ExerciseImages src={image} />
+        <HeartBookmark
+          heartOnClick={heartOnClick}
+          src={showLike}
+          isLiked={isLiked}
+        ></HeartBookmark>
+        <ToggleDescription
+          title={title}
+          description={description}
+        ></ToggleDescription>
+      </ExerciseWrapper>
+    </Grid>
   )
 }
+
+const Grid = styled.div`
+  display: Grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 40px;
+  row-gap: 40px;
+  margin-right: 10px;
+`
 
 const ExerciseWrapper = styled.section`
   border-radius: 5px;
@@ -44,6 +54,7 @@ const ExerciseImages = styled.img`
   object-fit: cover;
   position: absolute;
   z-index: -100;
+  border-radius: 5px;
 `
 
 Exercise.propTypes = {
