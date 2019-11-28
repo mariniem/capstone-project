@@ -13,30 +13,20 @@ export default function Exercise({
   isLiked,
 }) {
   return (
-    <Grid>
-      <ExerciseWrapper>
-        <ExerciseImages src={image} />
-        <HeartBookmark
-          heartOnClick={heartOnClick}
-          src={showLike}
-          isLiked={isLiked}
-        ></HeartBookmark>
-        <ToggleDescription
-          title={title}
-          description={description}
-        ></ToggleDescription>
-      </ExerciseWrapper>
-    </Grid>
+    <ExerciseWrapper>
+      <ExerciseImages src={image} />
+      <HeartBookmark
+        heartOnClick={heartOnClick}
+        src={showLike}
+        isLiked={isLiked}
+      ></HeartBookmark>
+      <ToggleDescription
+        title={title}
+        description={description}
+      ></ToggleDescription>
+    </ExerciseWrapper>
   )
 }
-
-const Grid = styled.div`
-  display: Grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 40px;
-  row-gap: 40px;
-  margin-right: 10px;
-`
 
 const ExerciseWrapper = styled.section`
   border-radius: 5px;

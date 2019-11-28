@@ -7,9 +7,9 @@ const GlobalStyle = createGlobalStyle`
 
 body {
   margin: 0;
-  display: grid;
+  /* display: grid;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   font-family: 'Nunito', sans-serif;
 }
 `
