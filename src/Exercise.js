@@ -33,14 +33,14 @@ const ExerciseWrapper = styled.section`
   border: solid 0.5px lightgrey;
   box-shadow: 0 5px 20px #0002;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   position: relative;
 `
 
 const ExerciseImages = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
   position: absolute;
   z-index: -1;
