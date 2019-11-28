@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
+//import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Exercise from './Exercise'
-import exerciseData from './exercises.json'
-import GlobalStyle from './GlobalStyle'
+//import exerciseData from './exercises.json'
 
 function App() {
   //const [isLiked, setIsLiked] = useState(false)
-  const [exercises, setExercises] = useState(exerciseData)
-
+  let savedExercisesData =
+    JSON.parse(localStorage.savedExercisesData || null) || {}
+  const [exercises, setExercises] = useState(savedExercisesData)
+  saveExercises(exercises)
   return (
     <div>
-      <GlobalStyle />
-
       <Grid>
         {exercises.map((exercise, id) => {
           return (
@@ -35,6 +35,11 @@ function App() {
       { ...exercise, isLiked: !exercise.isLiked },
       ...exercises.slice(id + 1),
     ])
+  }
+
+  function saveExercises(exercises) {
+    savedExercisesData = exercises
+    localStorage.savedExercisesData = JSON.stringify(savedExercisesData)
   }
 }
 
