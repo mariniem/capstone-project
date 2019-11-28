@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Exercise from './Exercise'
+import Header from './Header'
+import Footer from './Footer'
+import Grid from './Grid'
+import CreateWorkout from './CreateWorkout'
 //import exerciseData from './exercises.json'
 
 export default function App() {
@@ -11,18 +16,31 @@ export default function App() {
   return (
     <div>
       <Grid>
-        {exercises.map((exercise, id) => {
-          return (
-            <Exercise
-              title={exercise.title}
-              description={exercise.description}
-              image={exercise.image}
-              key={exercise.id}
-              heartOnClick={() => heartOnClick(id)}
-              isLiked={exercise.isLiked}
-            />
-          )
-        })}
+        <Header />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <ExerciseGrid>
+                {exercises.map((exercise, id) => {
+                  return (
+                    <Exercise
+                      title={exercise.title}
+                      description={exercise.description}
+                      image={exercise.image}
+                      key={exercise.id}
+                      heartOnClick={() => heartOnClick(id)}
+                      isLiked={exercise.isLiked}
+                    />
+                  )
+                })}
+              </ExerciseGrid>
+            </Route>
+            <Route path="/create">
+              <CreateWorkout>Hallo</CreateWorkout>
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
       </Grid>
     </div>
   )
@@ -41,10 +59,11 @@ export default function App() {
   }
 }
 
-const Grid = styled.div`
+const ExerciseGrid = styled.div`
   display: Grid;
   grid-template-columns: 1fr 1fr;
-  margin: 40px;
+  margin: 0 40px;
   row-gap: 40px;
   margin-right: 10px;
+  overflow-y: scroll;
 `

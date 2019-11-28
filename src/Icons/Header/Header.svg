@@ -1,0 +1,22 @@
+
+<svg width="160px" height="29px" viewBox="0 0 167 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-List-of-Exercises" transform="translate(-104.000000, -20.000000)" stroke="#647D91">
+            <g id="App-Title" transform="translate(106.000000, 23.000000)">
+                <line x1="12.5" y1="3.25490196" x2="12.5" y2="28.745098" id="Line-3" stroke-width="5" stroke-linecap="square"></line>
+                <line x1="23.7333333" y1="1.5" x2="0.266666667" y2="1.5" id="Line" stroke-width="4" stroke-linecap="square"></line>
+                <line x1="50.2857143" y1="19.2631579" x2="57" y2="30" id="Line-4" stroke-width="4" stroke-linecap="square"></line>
+                <line x1="79.7291667" y1="3.25490196" x2="67.2708333" y2="28.745098" id="Line-5" stroke-width="4" stroke-linecap="square"></line>
+                <line x1="81.28" y1="3.25490196" x2="94.72" y2="28.745098" id="Line-6" stroke-width="4" stroke-linecap="square"></line>
+                <line x1="102" y1="1" x2="114" y2="20" id="Line-7" stroke-width="4" stroke-linecap="square"></line>
+                <line x1="125.727273" y1="1.25675676" x2="114.272727" y2="19.7432432" id="Line-8" stroke-width="4" stroke-linecap="square"></line>
+                <line x1="114.5" y1="19" x2="114.25" y2="28.7368421" id="Line-9" stroke-width="4" stroke-linecap="square"></line>
+                <line x1="138" y1="29" x2="137.5" y2="0" id="Line-10" stroke-width="4" stroke-linecap="square"></line>
+                <line x1="139.27381" y1="1.25454545" x2="162" y2="28" id="Line-11" stroke-width="4" stroke-linecap="square"></line>
+                <line x1="162.5" y1="28" x2="162.25" y2="0.254545455" id="Line-12" stroke-width="4" stroke-linecap="square"></line>
+                <path d="M36,20 C48.7025492,20 59,15.7467051 59,10.5 C59,5.25329488 48.7025492,1 36,1" id="Path" stroke-width="4"></path>
+                <line x1="36.5" y1="20.2631579" x2="36.5" y2="29.7368421" id="Line-2" stroke-width="4" stroke-linecap="square"></line>
+            </g>
+        </g>
+    </g>
+</svg>
