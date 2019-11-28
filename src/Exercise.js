@@ -43,7 +43,7 @@ const ExerciseImages = styled.img`
   height: 120px;
   object-fit: cover;
   position: absolute;
-  z-index: -100;
+  z-index: -1;
   border-radius: 5px;
 `
 

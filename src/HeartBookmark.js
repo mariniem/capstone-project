@@ -5,7 +5,6 @@ import HeartUnlike from './Icons/Heart unlike.svg'
 
 export default function({ heartOnClick, isLiked }) {
   const showLike = isLiked ? HeartLike : HeartUnlike
-  //setIsLiked(() => !isLiked)
 
   return (
     <HeartBookmarkStyled
