@@ -1,0 +1,16 @@
+
+<svg width="15px" height="12px" viewBox="0 0 20 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M12,21 L12,21 C11.734,21 11.48,20.895 11.292,20.706 L3.525,12.926 C1.489,10.886 1.489,7.567 3.525,5.527 C4.508,4.543 5.821,4 7.22,4 C8.619,4 9.932,4.543 10.915,5.527 L12,6.614 L13.084,5.528 C14.068,4.543 15.381,4 16.78,4 C18.179,4 19.492,4.543 20.475,5.527 C22.511,7.567 22.511,10.886 20.476,12.926 L12.708,20.707 C12.52,20.895 12.266,21 12,21" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-List-of-Exercises" transform="translate(-330.000000, -106.000000)">
+            <g id="heart-fill" transform="translate(328.000000, 102.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="🎨-Icon-Сolor" fill="#DAA39F" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

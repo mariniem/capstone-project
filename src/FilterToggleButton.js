@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import React from 'react'
+import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
 
 export default function FilterToggleButton({ isLiked, heartOnClick }) {
   const Label = styled.label`
@@ -11,6 +12,7 @@ export default function FilterToggleButton({ isLiked, heartOnClick }) {
     top: 0px;
     font-size: 14px;
     color: #647d91;
+    margin-top: 3px;
   `
   const Checkbox = styled.input`
     display: none;
@@ -48,7 +50,7 @@ export default function FilterToggleButton({ isLiked, heartOnClick }) {
         heartOnClick()
       }}
     >
-      only liked exercises
+      only <img src={HeartLikeSmall}></img> exercises
       <Checkbox type="checkbox" />
       <Slider isLiked={isLiked}></Slider>
     </Label>
