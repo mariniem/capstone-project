@@ -1,14 +1,19 @@
 import React from 'react'
-import ExerciseList from './ExerciseList'
-/* import Globalstyle from './GlobalStyle' */
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Home from './Home'
+import Create from './Create'
 
-function App() {
+export default function App() {
   return (
-    <div>
-      {/* <Globalstyle></Globalstyle> */}
-      <ExerciseList />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/Home">
+          <Home></Home>
+        </Route>
+        <Route path="/create">
+          <Create></Create>
+        </Route>
+      </Switch>
+    </Router>
   )
 }
-
-export default App

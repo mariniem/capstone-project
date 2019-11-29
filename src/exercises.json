@@ -3,60 +3,70 @@
     "title": "Squats",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "1"
+    "id": "1",
+    "isLiked": false
   },
   {
     "title": "High Lunge",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "2"
+    "id": "2",
+    "isLiked": false
   },
   {
     "title": "Kickbacks",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "3"
+    "id": "3",
+    "isLiked": false
   },
   {
     "title": "Kickback with stretched legs",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid. Jsiusidsi djdjdjdjdjd djdkdjdjd djdjdjdjdj",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "4"
+    "id": "4",
+    "isLiked": false
   },
   {
     "title": "King Dancer",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "5"
+    "id": "5",
+    "isLiked": false
   },
   {
     "title": "Lunges",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "6"
+    "id": "6",
+    "isLiked": false
   },
   {
     "title": "Plank",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "7"
+    "id": "7",
+    "isLiked": false
   },
   {
     "title": "Side Plank",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "8"
+    "id": "8",
+    "isLiked": false
   },
   {
     "title": "Sit-ups",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "9"
+    "id": "9",
+    "isLiked": false
   },
   {
     "title": "Spiderman Crunch",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dignissimos dolorum ex aliquid.",
     "image": "/pictures/KickbacksLegStretched.jpg",
-    "id": "10"
+    "id": "10",
+    "isLiked": false
   }
 ]

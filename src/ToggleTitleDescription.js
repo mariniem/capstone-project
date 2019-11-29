@@ -2,13 +2,13 @@ import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 import DescriptionButton from './DescriptionButton'
 import ExerciseButton from './ExerciseButton'
-import ArrowUp from './Icons/Arrow up.svg'
+import ArrowDown from './Icons/Arrow down.svg'
 
 export default function ToggleTitleDescription({ title, description }) {
   const [isDescriptionShown, setIsDescriptionShwon] = useState(false)
 
   const onButtonClick = () => setIsDescriptionShwon(!isDescriptionShown)
-  const showButton = isDescriptionShown ? '' : ArrowUp
+  const showButton = isDescriptionShown ? '' : ArrowDown
 
   return (
     <>
@@ -36,7 +36,7 @@ const DescriptionWrapper = styled.div`
   border-radius: 3px;
   box-shadow: 0 5px 20px #0002;
   background: #647d91;
-  opacity: 0.9;
+  opacity: 0.95;
 
   &: after {
     content: '';
@@ -45,7 +45,7 @@ const DescriptionWrapper = styled.div`
     border-bottom-color: #647d91;
     bottom: 100%;
     left: 10%;
-    opacity: 0.9;
+    opacity: 0.95;
   }
 `
 
@@ -53,7 +53,6 @@ const Title = styled.p`
   color: #f2f2f2;
   font-size: 12px;
   font-weight: bold;
-  font-family: 'Nunito', sans-serif;
   padding-top: 20px;
   margin: 5px;
   position: relative;
@@ -61,7 +60,6 @@ const Title = styled.p`
 const Description = styled.p`
   color: #f2f2f2;
   font-size: 10px;
-  font-family: 'Nunito', sans-serif;
   margin: 5px;
-  padding: 5px;
+  padding-bottom: 5px;
 `
