@@ -4,6 +4,7 @@ import Exercise from './Exercise'
 import Header from './Header'
 import Footer from './Footer'
 import Grid from './Grid'
+import FilterToggleButton from './FilterToggleButton'
 
 //import exerciseData from './exercises.json'
 
@@ -12,25 +13,41 @@ export default function Home() {
     JSON.parse(localStorage.savedExercisesData || null) || {}
 
   const [exercises, setExercises] = useState(savedExercisesData)
+  const [isOnlyLikedShown, setIsOnlyLikedShown] = useState(false)
 
   saveExercises(exercises)
   return (
     <div>
       <Grid>
         <Header />
+        <FilterToggleButton
+          heartOnClick={() => setIsOnlyLikedShown(!isOnlyLikedShown)}
+          isLiked={isOnlyLikedShown}
+        ></FilterToggleButton>
         <ExerciseGrid>
-          {exercises.map((exercise, id) => {
-            return (
-              <Exercise
-                title={exercise.title}
-                description={exercise.description}
-                image={exercise.image}
-                key={exercise.id}
-                heartOnClick={() => heartOnClick(id)}
-                isLiked={exercise.isLiked}
-              />
-            )
-          })}
+          {isOnlyLikedShown
+            ? exercises
+                .filter(exercise => exercise.isLiked === true)
+                .map((exercise, id) => (
+                  <Exercise
+                    title={exercise.title}
+                    description={exercise.description}
+                    image={exercise.image}
+                    key={exercise.id}
+                    heartOnClick={() => heartOnClick(id)}
+                    isLiked={exercise.isLiked}
+                  />
+                ))
+            : exercises.map((exercise, id) => (
+                <Exercise
+                  title={exercise.title}
+                  description={exercise.description}
+                  image={exercise.image}
+                  key={exercise.id}
+                  heartOnClick={() => heartOnClick(id)}
+                  isLiked={exercise.isLiked}
+                />
+              ))}
         </ExerciseGrid>
         <Footer />
       </Grid>
