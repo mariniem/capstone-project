@@ -5,37 +5,58 @@ import Footer from './Footer'
 import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
 //import Grid from './Grid'
 
-export default function Create() {
+export default function Create({ isLiked, isOnlyLikedShown, exercise }) {
   return (
     <CreateGrid>
       <Header></Header>
       <StyledForm>
-        <Headline>Name deines Workouts:</Headline>
-        <WorkoutNameInput type="text"></WorkoutNameInput>
+        <Label>
+          <Headline>Name deines Workouts:</Headline>
+          <WorkoutNameInput type="text" name="workoutName"></WorkoutNameInput>
+        </Label>
         <Headline>Kategorie:</Headline>
         <CheckboxWrapper>
           <div>
-            <Checkbox type="Checkbox"></Checkbox>
+            <Checkbox type="Checkbox" name="kraft"></Checkbox>
             <Label>Kraft</Label>
           </div>
           <div>
-            <Checkbox type="Checkbox"></Checkbox>
+            <Checkbox type="Checkbox" name="cardio"></Checkbox>
             <Label>Cardio</Label>
           </div>
           <div>
-            <Checkbox type="Checkbox"></Checkbox>
+            <Checkbox type="Checkbox" name="yoga"></Checkbox>
             <Label>Yoga</Label>
           </div>
         </CheckboxWrapper>
         <Headline>
-          Deine <img src={HeartLikeSmall}></img> Übungen:{' '}
+          Deine <img type="image" alt="heart" src={HeartLikeSmall}></img>{' '}
+          Übungen:{' '}
         </Headline>
+        {/*     <LikedExercisesWrapper>
+          <LikedExerciseImage isLiked={isLiked}>Hallo</LikedExerciseImage>
+          <LikedExerciseTitle>{title}</LikedExerciseTitle>
+        </LikedExercisesWrapper> */}
         <SubmitButton type="submit" value="Workout speichern"></SubmitButton>
       </StyledForm>
       <Footer></Footer>
     </CreateGrid>
   )
 }
+/* 
+const LikedExercisesWrapper = styled.section`
+  border-radius: 5px;
+  border: solid 2px #647d91;
+  height: 50px;
+  width: 300px;
+`
+const LikedExerciseImage = styled.img`
+  height: 20px;
+  width: 20px;
+`
+const LikedExerciseTitle = styled.div`
+  color: #647d91;
+` */
 
 const CreateGrid = styled.div`
   display: grid;
