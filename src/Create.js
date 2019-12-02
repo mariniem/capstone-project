@@ -5,8 +5,7 @@ import Footer from './Footer'
 import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
 import LikedExerciseList from './LikedExerciseList'
 
-
-export default function Create({ title }) {
+export default function Create() {
   let savedExercisesData =
     JSON.parse(localStorage.savedExercisesData || null) || {}
 
@@ -17,7 +16,6 @@ export default function Create({ title }) {
       <StyledFormGrid>
         <Header></Header>
         <CreateGrid>
-         
           <Label>
             <Headline>Name deines Workouts:</Headline>
             <WorkoutNameInput type="text" name="workoutName"></WorkoutNameInput>
@@ -37,28 +35,43 @@ export default function Create({ title }) {
               <Label>Yoga</Label>
             </div>
           </CheckboxWrapper>
-          <Headline>
-            Deine <img type="image" alt="heart" src={HeartLikeSmall}></img>{' '}
-            Übungen:{' '}
-          </Headline>
-          {exercises
-            .filter(exercise => exercise.isLiked === true)
-            .map((exercise, id) => (
-              <LikedExerciseList
-                title={exercise.title}
-                image={exercise.image}
-                key={exercise.id}
-                isLiked={exercise.isLiked}
-              />
-            ))}
-          <SubmitButton type="submit" value="Workout speichern"></SubmitButton>
-       
+          <LikedExercisesWrapper>
+            <Headline>
+              Deine <img type="image" alt="heart" src={HeartLikeSmall}></img>{' '}
+              Übungen:{' '}
+            </Headline>
+            {exercises
+              .filter(exercise => exercise.isLiked === true)
+              .map((exercise, id) => (
+                <LikedExerciseList
+                  title={exercise.title}
+                  image={exercise.image}
+                  key={exercise.id}
+                  isLiked={exercise.isLiked}
+                />
+              ))}
+          </LikedExercisesWrapper>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <SubmitButton
+              type="submit"
+              value="Workout speichern"
+            ></SubmitButton>
+          </div>
         </CreateGrid>
         <Footer />
       </StyledFormGrid>
     </div>
   )
 }
+
+const LikedExercisesWrapper = styled.div`
+  display: grid;
+`
 
 const CreateGrid = styled.div`
   display: grid;
@@ -76,7 +89,6 @@ const StyledFormGrid = styled.div`
   left: 0;
   right: 0;
 `
-`
 
 const WorkoutNameInput = styled.input`
   border: solid 1.5px #647d91;
@@ -89,12 +101,11 @@ const WorkoutNameInput = styled.input`
 const Headline = styled.h1`
   font-size: 17px;
   color: #647d91;
-  margin-top: 40px;
 `
 const CheckboxWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 20px;
 `
 const Checkbox = styled.input`
   border: 1px solid #647d91;
@@ -115,5 +126,5 @@ const SubmitButton = styled.input`
   padding: 5px;
   border: 2px solid transparent;
   border-radius: 3px;
-  margin: 40px 0;
+  margin-bottom: 20px;
 `
