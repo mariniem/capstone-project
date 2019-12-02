@@ -21,21 +21,23 @@ export default function Create() {
             <WorkoutNameInput type="text" name="workoutName"></WorkoutNameInput>
           </Label>
 
-          <Headline>Kategorie:</Headline>
-          <CheckboxWrapper>
-            <div>
-              <Checkbox type="Checkbox" name="kraft"></Checkbox>
-              <Label>Kraft</Label>
-            </div>
-            <div>
-              <Checkbox type="Checkbox" name="cardio"></Checkbox>
-              <Label>Cardio</Label>
-            </div>
-            <div>
-              <Checkbox type="Checkbox" name="yoga"></Checkbox>
-              <Label>Yoga</Label>
-            </div>
-          </CheckboxWrapper>
+          <Wrapper>
+            <Headline>Kategorie:</Headline>
+            <CheckboxWrapper>
+              <div>
+                <Checkbox type="Checkbox" name="kraft"></Checkbox>
+                <Label>Kraft</Label>
+              </div>
+              <div>
+                <Checkbox type="Checkbox" name="cardio"></Checkbox>
+                <Label>Cardio</Label>
+              </div>
+              <div>
+                <Checkbox type="Checkbox" name="yoga"></Checkbox>
+                <Label>Yoga</Label>
+              </div>
+            </CheckboxWrapper>
+          </Wrapper>
 
           <LikedExercisesWrapper>
             <Headline>
@@ -71,20 +73,23 @@ export default function Create() {
   )
 }
 
+const Wrapper = styled.div`
+  margin-top: 40px;
+`
+
 const LikedExercisesWrapper = styled.div`
   display: grid;
+  margin-top: 25px;
 `
 
 const CreateGrid = styled.div`
-  display: grid;
-  grid-template-rows: 60px auto 55px;
-  gap: 20px;
   overflow-y: scroll;
   margin-left: 10px;
 `
 
 const StyledFormGrid = styled.div`
   display: grid;
+  grid-template-rows: 60px auto 55px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -103,6 +108,7 @@ const WorkoutNameInput = styled.input`
 const Headline = styled.h1`
   font-size: 17px;
   color: #647d91;
+  margin-top: 20px;
 `
 const CheckboxWrapper = styled.div`
   display: flex;
@@ -129,5 +135,5 @@ const SubmitButton = styled.input`
   padding: 5px;
   border: 2px solid transparent;
   border-radius: 3px;
-  margin-bottom: 20px;
+  margin: 30px 0;
 `
