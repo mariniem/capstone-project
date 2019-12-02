@@ -2,12 +2,17 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import Create from './Create'
+import { getExercises, patchExercise } from './services'
 
 export default function App() {
   let savedExercisesData =
     JSON.parse(localStorage.savedExercisesData || null) || {}
 
   const [exercises, setExercises] = useState(savedExercisesData)
+
+  useEffect(() => {
+    getExercises().then(setExercises)
+  }, [])
 
   saveExercises(exercises)
   return (

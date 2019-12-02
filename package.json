@@ -42,5 +42,18 @@
     "@storybook/addons": "5.2.6",
     "@storybook/react": "5.2.6",
     "storybook-addon-jsx": "7.1.13"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariniem/capstone-project.git"
+  },
+  "keywords": [],
+  "author": "Marilena Niemann <mari_niemann@web.de>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mariniem/capstone-project/issues"
+  },
+  "homepage": "https://github.com/mariniem/capstone-project#readme"
 }
