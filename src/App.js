@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import Create from './Create'
 import { getExercises, patchExercise } from './services'
 
 export default function App() {
-  let savedExercisesData =
-    JSON.parse(localStorage.savedExercisesData || null) || {}
+  /*  let savedExercisesData =
+    JSON.parse(localStorage.savedExercisesData || null) || {} */
 
   const [exercises, setExercises] = useState(savedExercisesData)
 
@@ -14,7 +14,8 @@ export default function App() {
     getExercises().then(setExercises)
   }, [])
 
-  saveExercises(exercises)
+  /* saveExercises(exercises) */
+
   return (
     <Router>
       <Switch>
@@ -28,8 +29,8 @@ export default function App() {
     </Router>
   )
 
-  function saveExercises(exercises) {
+  /*   function saveExercises(exercises) {
     savedExercisesData = exercises
     localStorage.savedExercisesData = JSON.stringify(savedExercisesData)
-  }
+  } */
 }
