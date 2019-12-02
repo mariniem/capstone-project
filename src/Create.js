@@ -20,6 +20,7 @@ export default function Create() {
             <Headline>Name deines Workouts:</Headline>
             <WorkoutNameInput type="text" name="workoutName"></WorkoutNameInput>
           </Label>
+
           <Headline>Kategorie:</Headline>
           <CheckboxWrapper>
             <div>
@@ -35,6 +36,7 @@ export default function Create() {
               <Label>Yoga</Label>
             </div>
           </CheckboxWrapper>
+
           <LikedExercisesWrapper>
             <Headline>
               Deine <img type="image" alt="heart" src={HeartLikeSmall}></img>{' '}
@@ -92,7 +94,7 @@ const StyledFormGrid = styled.div`
 
 const WorkoutNameInput = styled.input`
   border: solid 1.5px #647d91;
-  border-radius: 5px;
+  border-radius: 1px;
   height: 30px;
   width: 340px;
   margin-top: 5px;
@@ -105,8 +107,9 @@ const Headline = styled.h1`
 const CheckboxWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 50px;
 `
+
 const Checkbox = styled.input`
   border: 1px solid #647d91;
   height: 18px;
