@@ -3,71 +3,83 @@ import React, { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
-//import Grid from './Grid'
+import LikedExerciseList from './LikedExerciseList'
 
-export default function Create() {
+
+export default function Create({ title }) {
   let savedExercisesData =
     JSON.parse(localStorage.savedExercisesData || null) || {}
 
   const [exercises, setExercises] = useState(savedExercisesData)
 
   return (
-    <CreateGrid>
-      <Header></Header>
-      <StyledForm>
-        <Label>
-          <Headline>Name deines Workouts:</Headline>
-          <WorkoutNameInput type="text" name="workoutName"></WorkoutNameInput>
-        </Label>
-        <Headline>Kategorie:</Headline>
-        <CheckboxWrapper>
-          <div>
-            <Checkbox type="Checkbox" name="kraft"></Checkbox>
-            <Label>Kraft</Label>
-          </div>
-          <div>
-            <Checkbox type="Checkbox" name="cardio"></Checkbox>
-            <Label>Cardio</Label>
-          </div>
-          <div>
-            <Checkbox type="Checkbox" name="yoga"></Checkbox>
-            <Label>Yoga</Label>
-          </div>
-        </CheckboxWrapper>
-        <Headline>
-          Deine <img type="image" alt="heart" src={HeartLikeSmall}></img>{' '}
-          Übungen:{' '}
-        </Headline>
-        {exercises
-          .filter(exercise => exercise.isLiked === true)
-          .map(exercise => (
-            <LikedExerciseImage src={exercise.image}></LikedExerciseImage>
-          ))}
-
-        <SubmitButton type="submit" value="Workout speichern"></SubmitButton>
-      </StyledForm>
-      <Footer></Footer>
-    </CreateGrid>
+    <div>
+      <StyledFormGrid>
+        <Header></Header>
+        <CreateGrid>
+         
+          <Label>
+            <Headline>Name deines Workouts:</Headline>
+            <WorkoutNameInput type="text" name="workoutName"></WorkoutNameInput>
+          </Label>
+          <Headline>Kategorie:</Headline>
+          <CheckboxWrapper>
+            <div>
+              <Checkbox type="Checkbox" name="kraft"></Checkbox>
+              <Label>Kraft</Label>
+            </div>
+            <div>
+              <Checkbox type="Checkbox" name="cardio"></Checkbox>
+              <Label>Cardio</Label>
+            </div>
+            <div>
+              <Checkbox type="Checkbox" name="yoga"></Checkbox>
+              <Label>Yoga</Label>
+            </div>
+          </CheckboxWrapper>
+          <Headline>
+            Deine <img type="image" alt="heart" src={HeartLikeSmall}></img>{' '}
+            Übungen:{' '}
+          </Headline>
+          {exercises
+            .filter(exercise => exercise.isLiked === true)
+            .map((exercise, id) => (
+              <LikedExerciseList
+                title={exercise.title}
+                image={exercise.image}
+                key={exercise.id}
+                isLiked={exercise.isLiked}
+              />
+            ))}
+          <SubmitButton type="submit" value="Workout speichern"></SubmitButton>
+       
+        </CreateGrid>
+        <Footer />
+      </StyledFormGrid>
+    </div>
   )
 }
-
-const LikedExerciseImage = styled.img`
-  height: 50px;
-  width: 50px;
-`
 
 const CreateGrid = styled.div`
   display: grid;
   grid-template-rows: 60px auto 55px;
   gap: 20px;
-`
-const StyledForm = styled.div`
-  margin-left: 10px;
   overflow-y: scroll;
+  margin-left: 10px;
+`
+
+const StyledFormGrid = styled.div`
+  display: grid;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`
 `
 
 const WorkoutNameInput = styled.input`
-  border: solid 2px #647d91;
+  border: solid 1.5px #647d91;
   border-radius: 5px;
   height: 30px;
   width: 340px;
@@ -103,4 +115,5 @@ const SubmitButton = styled.input`
   padding: 5px;
   border: 2px solid transparent;
   border-radius: 3px;
+  margin: 40px 0;
 `
