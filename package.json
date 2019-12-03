@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@storybook/addon-knobs": "5.2.6",
+    "nodemon": "2.0.1",
     "npm-run-all": "4.1.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -12,14 +13,16 @@
     "styled-components": "4.4.1"
   },
   "scripts": {
-    "start": "run-p client storybook",
+    "start": "run-p client server",
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "server": "PORT=3333 nodemon --inspect --watch ./server ./server/server.js",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
+  "proxy": "http://localhost:3333",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -42,5 +45,18 @@
     "@storybook/addons": "5.2.6",
     "@storybook/react": "5.2.6",
     "storybook-addon-jsx": "7.1.13"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariniem/capstone-project.git"
+  },
+  "keywords": [],
+  "author": "Marilena Niemann <mari_niemann@web.de>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mariniem/capstone-project/issues"
+  },
+  "homepage": "https://github.com/mariniem/capstone-project#readme"
 }

@@ -14,7 +14,7 @@ export default function Exercise({
 }) {
   return (
     <ExerciseWrapper>
-      <ExerciseImages src={image} />
+      <ExerciseImages type="image" alt="pictures of exercises" src={image} />
       <HeartBookmark
         heartOnClick={heartOnClick}
         src={showLike}
@@ -35,7 +35,6 @@ const ExerciseWrapper = styled.section`
   position: relative;
   width: 130px;
   height: 130px;
-  position: relative;
 `
 
 const ExerciseImages = styled.img`

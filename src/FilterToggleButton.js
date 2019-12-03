@@ -50,7 +50,7 @@ export default function FilterToggleButton({ isLiked, heartOnClick }) {
         heartOnClick()
       }}
     >
-      only <img src={HeartLikeSmall}></img> exercises
+      Nur <img type="image" alt="heart" src={HeartLikeSmall}></img> Übungen
       <Checkbox type="checkbox" />
       <Slider isLiked={isLiked}></Slider>
     </Label>
