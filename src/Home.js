@@ -8,12 +8,12 @@ import FilterToggleButton from './FilterToggleButton'
 
 //import exerciseData from './exercises.json'
 
-export default function Home() {
+export default function Home({ exercises, heartOnClick }) {
   const [isOnlyLikedShown, setIsOnlyLikedShown] = useState(false)
-  let savedExercisesData =
+  /*  let savedExercisesData =
     JSON.parse(localStorage.savedExercisesData || null) || {}
 
-  const [exercises, setExercises] = useState(savedExercisesData)
+  const [exercises, setExercises] = useState(savedExercisesData) */
 
   return (
     <div>
@@ -52,14 +52,6 @@ export default function Home() {
       </Grid>
     </div>
   )
-  function heartOnClick(id) {
-    const exercise = exercises[id]
-    setExercises([
-      ...exercises.slice(0, id),
-      { ...exercise, isLiked: !exercise.isLiked },
-      ...exercises.slice(id + 1),
-    ])
-  }
 }
 
 const ExerciseGrid = styled.div`
