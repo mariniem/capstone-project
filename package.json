@@ -6,15 +6,12 @@
     "@storybook/addon-actions": "5.2.6",
     "@storybook/addon-info": "5.2.6",
     "@storybook/addon-knobs": "5.2.6",
-<<<<<<< HEAD
     "@storybook/addon-links": "5.2.6",
     "@storybook/addons": "5.2.6",
     "@storybook/react": "5.2.6",
     "cypress": "3.7.0",
     "eslint-plugin-cypress": "2.7.0",
-=======
     "nodemon": "2.0.1",
->>>>>>> master
     "npm-run-all": "4.1.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -52,9 +49,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
-  }
-=======
   },
   "devDependencies": {
     "@storybook/addon-actions": "5.2.6",
@@ -77,5 +71,4 @@
     "url": "https://github.com/mariniem/capstone-project/issues"
   },
   "homepage": "https://github.com/mariniem/capstone-project#readme"
->>>>>>> master
 }

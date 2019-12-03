@@ -26,13 +26,8 @@ export default function Footer() {
   return (
     <Footer>
       <NavButton>
-<<<<<<< HEAD
         <Link to="/">
-          <img src={Home}></img>
-=======
-        <Link to="/Home">
           <img alt="home" src={Home}></img>
->>>>>>> master
         </Link>
       </NavButton>
       <NavButton>
