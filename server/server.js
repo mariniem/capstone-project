@@ -11,11 +11,27 @@ const app = express()
 app.use(express.json())
 const PORT = process.env.PORT || 3333
 app.listen(PORT, () => console.log(`Express ready on port ${PORT}`))
+
 app.get('/exercises', (req, res) => {
+  console.log('Gib alle Übungen')
   Exercise.find()
     .then(exercises => res.json(exercises))
     .catch(err => res.json(err))
 })
+
+app.get('/exercises/:id', (req, res) => {
+  console.log('Gib Übung mit ID' + req.params.id)
+  Exercise.findById(req.params.id)
+    .then(exercises => res.json(exercises))
+    .catch(err => res.json(err))
+})
+
+app.put('/exercises/:id', (req, res) => {
+  Exercise.findByIdAndUpdate(req.params.id, req.body)
+    .then(exercises => res.json(exercises))
+    .catch(err => res.json(err))
+})
+
 //Card.find().forEach(card => {delete card[id]});
 /* const app = express()
 app.use(express.json())

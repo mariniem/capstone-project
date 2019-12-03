@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import Create from './Create'
+import WorkoutList from './WorkoutList'
 import { getExercises } from './services'
 
 export default function App() {
@@ -16,7 +17,7 @@ export default function App() {
     setExercises([
       ...exercises.slice(0, id),
       { ...exercise, isLiked: !exercise.isLiked },
-      ...exercises.slice(id + 1)
+      ...exercises.slice(id + 1),
     ])
   }
   return (
@@ -27,6 +28,9 @@ export default function App() {
         </Route>
         <Route path="/create">
           <Create exercises={exercises}></Create>
+        </Route>
+        <Route path="/favorites">
+          <WorkoutList exercises={exercises}></WorkoutList>
         </Route>
       </Switch>
     </Router>
