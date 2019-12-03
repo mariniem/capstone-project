@@ -30,7 +30,6 @@ export default function Exercise({
 
 const ExerciseWrapper = styled.section`
   border-radius: 5px;
-  border: solid 0.5px lightgrey;
   box-shadow: 0 5px 20px #0002;
   position: relative;
   width: 130px;
