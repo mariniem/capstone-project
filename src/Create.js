@@ -74,7 +74,7 @@ export default function Create() {
 }
 
 const Wrapper = styled.div`
-  margin-top: 40px;
+  margin-top: 39px;
 `
 
 const LikedExercisesWrapper = styled.div`
