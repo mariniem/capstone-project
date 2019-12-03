@@ -1,16 +1,11 @@
 import styled from 'styled-components/macro'
-import React, { useState } from 'react'
+import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
 import LikedExerciseList from './LikedExerciseList'
 
-export default function Create() {
-  let savedExercisesData =
-    JSON.parse(localStorage.savedExercisesData || null) || {}
-
-  const [exercises, setExercises] = useState(savedExercisesData)
-
+export default function Create({ exercises }) {
   return (
     <div>
       <StyledFormGrid>
@@ -44,7 +39,7 @@ export default function Create() {
             </Headline>
             {exercises
               .filter(exercise => exercise.isLiked === true)
-              .map((exercise, id) => (
+              .map(exercise => (
                 <LikedExerciseList
                   title={exercise.title}
                   image={exercise.image}

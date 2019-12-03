@@ -10,10 +10,6 @@ import FilterToggleButton from './FilterToggleButton'
 
 export default function Home({ exercises, heartOnClick }) {
   const [isOnlyLikedShown, setIsOnlyLikedShown] = useState(false)
-  /*  let savedExercisesData =
-    JSON.parse(localStorage.savedExercisesData || null) || {}
-
-  const [exercises, setExercises] = useState(savedExercisesData) */
 
   return (
     <div>

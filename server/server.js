@@ -2,7 +2,7 @@ const express = require('express')
 const Exercise = require('./models/Exercise')
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/trayn', {
+mongoose.connect('mongodb://localhost:27017/capstone-project', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
