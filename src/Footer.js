@@ -26,7 +26,7 @@ export default function Footer() {
   return (
     <Footer>
       <NavButton>
-        <Link to="/Home">
+        <Link to="/">
           <img src={Home}></img>
         </Link>
       </NavButton>
