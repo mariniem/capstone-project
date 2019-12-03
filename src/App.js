@@ -16,13 +16,13 @@ export default function App() {
     setExercises([
       ...exercises.slice(0, id),
       { ...exercise, isLiked: !exercise.isLiked },
-      ...exercises.slice(id + 1),
+      ...exercises.slice(id + 1)
     ])
   }
   return (
     <Router>
       <Switch>
-        <Route exact path="/Home">
+        <Route exact path="/">
           <Home exercises={exercises} heartOnClick={heartOnClick}></Home>
         </Route>
         <Route path="/create">
