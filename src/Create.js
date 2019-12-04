@@ -4,16 +4,31 @@ import Header from './Header'
 import Footer from './Footer'
 import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
 import LikedExerciseList from './LikedExerciseList'
+/* import PropTypes from 'prop-types' */
 
-export default function Create({ exercises }) {
+export default function Create({ exercises, onSubmit }) {
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = event.target
+    const formData = new FormData(form)
+    const data = Object.fromEntries(formData)
+    console.log(form)
+    onSubmit(data)
+    form.reset()
+    form.title.focus()
+  }
   return (
     <div>
       <StyledFormGrid>
         <Header></Header>
-        <CreateGrid>
+        <CreateGrid onSubmit={handleSubmit}>
           <Label>
             <Headline>Name deines Workouts:</Headline>
-            <WorkoutNameInput type="text" name="workoutName"></WorkoutNameInput>
+            <WorkoutNameInput
+              type="text"
+              name="workoutName"
+              required
+            ></WorkoutNameInput>
           </Label>
 
           <Wrapper>
@@ -79,7 +94,7 @@ const LikedExercisesWrapper = styled.div`
 
 const CreateGrid = styled.div`
   overflow-y: scroll;
-  margin-left: 10px;
+  margin-left: 20px;
 `
 
 const StyledFormGrid = styled.div`
@@ -132,3 +147,7 @@ const SubmitButton = styled.input`
   border-radius: 3px;
   margin: 30px 0;
 `
+
+/* Create.propTypes = {
+  Headline: PropTypes.string.isRequired,
+} */

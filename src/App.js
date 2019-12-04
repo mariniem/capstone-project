@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import Create from './Create'
-/* import PersonalWorkoutList from './PersonalWorkoutList' */
-import { getExercises, patchExercise } from './services'
+import PersonalWorkoutList from './PersonalWorkoutList'
+import { getExercises, patchExercise, postPersonalWorkout } from './services'
 
 export default function App() {
   const [exercises, setExercises] = useState([])
@@ -11,10 +11,6 @@ export default function App() {
   useEffect(() => {
     getExercises().then(setExercises)
   }, [])
-
-  /*  useEffect(() => {
-    patchExercises().then(setExercises)
-  }, []) */
 
   function heartOnClick(id) {
     const exercise = exercises[id]
@@ -28,6 +24,11 @@ export default function App() {
       }
     )
   }
+  function createPersonalWorkout(workoutData) {
+    postPersonalWorkout(workoutData).then(exercise => {
+      setExercises([...exercises, exercise])
+    })
+  }
   return (
     <Router>
       <Switch>
@@ -38,7 +39,10 @@ export default function App() {
           <Create exercises={exercises}></Create>
         </Route>
         <Route path="/favorites">
-          {/* <PersonalWorkoutList exercises={exercises}></PersonalWorkoutList> */}
+          <PersonalWorkoutList
+            onSubmit={createPersonalWorkout}
+            exercises={exercises}
+          ></PersonalWorkoutList>
         </Route>
       </Switch>
     </Router>

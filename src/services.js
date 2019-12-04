@@ -11,6 +11,17 @@ export function patchExercise(exercise) {
     },
   }).then(res => res.json())
 }
+
+export function postPersonalWorkout(exercise) {
+  return fetch('/exercises', {
+    method: 'POST',
+    body: JSON.stringify(exercise),
+    header: {
+      'content-type': 'application/json',
+    },
+  }).then(res => res.json())
+}
+
 /* export function postCard(card) {
   return fetch('/cards', {
     method: 'POST',
