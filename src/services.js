@@ -1,6 +1,16 @@
 export function getExercises() {
   return fetch('/exercises').then(res => res.json())
 }
+
+export function patchExercise(exercise) {
+  return fetch('/exercises/' + exercise._id, {
+    method: 'PATCH',
+    body: JSON.stringify(exercise),
+    headers: {
+      'content-type': 'application/json',
+    },
+  }).then(res => res.json())
+}
 /* export function postCard(card) {
   return fetch('/cards', {
     method: 'POST',
