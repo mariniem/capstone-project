@@ -3,7 +3,8 @@ import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
-import LikedExerciseList from './LikedExerciseList'
+import LikedExerciseItem from './LikedExerciseItem'
+
 /* import PropTypes from 'prop-types' */
 
 export default function Create({ exercises, onSubmit }) {
@@ -14,7 +15,7 @@ export default function Create({ exercises, onSubmit }) {
     const data = Object.fromEntries(formData)
     console.log(form)
     onSubmit(data)
-    form.reset()
+    //form.reset()
     form.title.focus()
   }
   return (
@@ -26,6 +27,7 @@ export default function Create({ exercises, onSubmit }) {
             <Headline>Name deines Workouts:</Headline>
             <WorkoutNameInput
               type="text"
+              id="title"
               name="workoutName"
               required
             ></WorkoutNameInput>
@@ -35,15 +37,27 @@ export default function Create({ exercises, onSubmit }) {
             <Headline>Kategorie:</Headline>
             <CheckboxWrapper>
               <div>
-                <Checkbox type="Checkbox" name="kraft"></Checkbox>
+                <RadioButton
+                  type="radio"
+                  name="category"
+                  value="kraft"
+                ></RadioButton>
                 <Label>Kraft</Label>
               </div>
               <div>
-                <Checkbox type="Checkbox" name="cardio"></Checkbox>
+                <RadioButton
+                  type="radio"
+                  name="category"
+                  value="cardio"
+                ></RadioButton>
                 <Label>Cardio</Label>
               </div>
               <div>
-                <Checkbox type="Checkbox" name="yoga"></Checkbox>
+                <RadioButton
+                  type="radio"
+                  name="category"
+                  value="yoga"
+                ></RadioButton>
                 <Label>Yoga</Label>
               </div>
             </CheckboxWrapper>
@@ -57,10 +71,11 @@ export default function Create({ exercises, onSubmit }) {
             {exercises
               .filter(exercise => exercise.isLiked === true)
               .map(exercise => (
-                <LikedExerciseList
+                <LikedExerciseItem
+                  id={exercise._id}
                   title={exercise.title}
                   image={exercise.image}
-                  key={exercise.id}
+                  key={exercise._id}
                   isLiked={exercise.isLiked}
                 />
               ))}
@@ -92,7 +107,7 @@ const LikedExercisesWrapper = styled.div`
   margin-top: 25px;
 `
 
-const CreateGrid = styled.div`
+const CreateGrid = styled.form`
   overflow-y: scroll;
   margin-left: 20px;
 `
@@ -126,7 +141,7 @@ const CheckboxWrapper = styled.div`
   gap: 50px;
 `
 
-const Checkbox = styled.input`
+const RadioButton = styled.input`
   border: 1px solid #647d91;
   height: 18px;
   width: 18px;

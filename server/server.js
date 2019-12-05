@@ -1,5 +1,6 @@
 const express = require('express')
 const Exercise = require('./models/Exercise')
+const Workouts = require('./models/Workouts')
 const mongoose = require('mongoose')
 
 mongoose.connect('mongodb://localhost:27017/capstone-project', {
@@ -30,9 +31,21 @@ app.patch('/exercises/:id', (req, res) => {
     .catch(err => res.json(err))
 })
 
-app.post('/exercises/:id', (req, res) => {
+/* app.post('/exercises/:id', (req, res) => {
   Exercise.create(req.body)
     .then(exercises => res.json(exercises))
+    .catch(err => res.json(err))
+}) */
+app.get('/workouts', (req, res) => {
+  Workouts.find()
+    .then(workouts => res.json(workouts))
+    .catch(err => res.json(err))
+})
+app.post('/workouts', (req, res) => {
+  //res.json(req.body)
+
+  Workouts.create(req.body)
+    .then(workout => res.json(workout))
     .catch(err => res.json(err))
 })
 

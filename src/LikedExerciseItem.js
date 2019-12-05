@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import React from 'react'
 
-export default function LikedExerciseList({ title, image }) {
+export default function LikedExerciseItem({ id, title, image }) {
   return (
     <LikedExerciseWrapper>
       <LikedExerciseImages
@@ -11,7 +11,7 @@ export default function LikedExerciseList({ title, image }) {
       />
       <LikedExerciseTitle title={title}>{title}</LikedExerciseTitle>
       <div>
-        <Checkbox type="Checkbox" name="add"></Checkbox>
+        <Checkbox type="Checkbox" name="exercises" value={id}></Checkbox>
         <Label>hinzufügen</Label>
       </div>
     </LikedExerciseWrapper>

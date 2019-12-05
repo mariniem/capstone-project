@@ -12,14 +12,20 @@ export function patchExercise(exercise) {
   }).then(res => res.json())
 }
 
-export function postPersonalWorkout(exercise) {
-  return fetch('/exercises', {
+export function postPersonalWorkout(workout) {
+  console.log(workout)
+
+  return fetch('/workouts', {
     method: 'POST',
-    body: JSON.stringify(exercise),
-    header: {
+    body: JSON.stringify(workout),
+    headers: {
       'content-type': 'application/json',
     },
   }).then(res => res.json())
+}
+
+export function getWorkouts() {
+  return fetch('/workouts').then(res => res.json())
 }
 
 /* export function postCard(card) {
