@@ -7,24 +7,13 @@ import TimerWorkout from '../src/Icons/Footer/TimerWorkout.svg'
 import { Link } from 'react-router-dom'
 
 export default function Footer() {
-  const Footer = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    align-items: center;
-    background: #647d91;
-    height: 55px;
-    width: 100%;
-    border: 1px solid transparent;
-    bottom: 0;
-  `
   const NavButton = styled.button`
     border: none;
     background: none;
   `
 
   return (
-    <Footer>
+    <>
       <NavButton>
         <Link to="/">
           <img alt="home" src={Home}></img>
@@ -45,6 +34,6 @@ export default function Footer() {
           <img alt="workout" src={TimerWorkout}></img>
         </Link>
       </NavButton>
-    </Footer>
+    </>
   )
 }

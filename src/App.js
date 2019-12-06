@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './Home'
+import AppLayout from './AppLayout'
 import Create from './Create'
 import PersonalWorkoutList from './PersonalWorkoutList'
 import {
@@ -42,23 +43,25 @@ export default function App() {
   }
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home exercises={exercises} heartOnClick={heartOnClick}></Home>
-        </Route>
-        <Route path="/create">
-          <Create
-            onSubmit={createPersonalWorkout}
-            exercises={exercises}
-          ></Create>
-        </Route>
-        <Route path="/favorites">
-          <PersonalWorkoutList
-            workouts={workouts}
-            exercises={exercises}
-          ></PersonalWorkoutList>
-        </Route>
-      </Switch>
+      <AppLayout>
+        <Switch>
+          <Route exact path="/">
+            <Home exercises={exercises} heartOnClick={heartOnClick}></Home>
+          </Route>
+          <Route path="/create">
+            <Create
+              onSubmit={createPersonalWorkout}
+              exercises={exercises}
+            ></Create>
+          </Route>
+          <Route path="/favorites">
+            <PersonalWorkoutList
+              workouts={workouts}
+              exercises={exercises}
+            ></PersonalWorkoutList>
+          </Route>
+        </Switch>
+      </AppLayout>
     </Router>
   )
 }

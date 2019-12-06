@@ -1,7 +1,5 @@
 import styled from 'styled-components/macro'
 import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
 import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
 import LikedExerciseItem from './LikedExerciseItem'
 
@@ -20,80 +18,73 @@ export default function Create({ exercises, onSubmit }) {
   }
   return (
     <div>
-      <StyledFormGrid>
-        <Header></Header>
-        <CreateGrid onSubmit={handleSubmit}>
-          <Label>
-            <Headline>Name deines Workouts:</Headline>
-            <WorkoutNameInput
-              type="text"
-              id="title"
-              name="workoutName"
-              required
-            ></WorkoutNameInput>
-          </Label>
+      <CreateGrid onSubmit={handleSubmit}>
+        <Label>
+          <Headline>Name deines Workouts:</Headline>
+          <WorkoutNameInput
+            type="text"
+            id="title"
+            name="workoutName"
+            required
+          ></WorkoutNameInput>
+        </Label>
 
-          <Wrapper>
-            <Headline>Kategorie:</Headline>
-            <CheckboxWrapper>
-              <div>
-                <RadioButton
-                  type="radio"
-                  name="category"
-                  value="kraft"
-                ></RadioButton>
-                <Label>Kraft</Label>
-              </div>
-              <div>
-                <RadioButton
-                  type="radio"
-                  name="category"
-                  value="cardio"
-                ></RadioButton>
-                <Label>Cardio</Label>
-              </div>
-              <div>
-                <RadioButton
-                  type="radio"
-                  name="category"
-                  value="yoga"
-                ></RadioButton>
-                <Label>Yoga</Label>
-              </div>
-            </CheckboxWrapper>
-          </Wrapper>
+        <Wrapper>
+          <Headline>Kategorie:</Headline>
+          <CheckboxWrapper>
+            <div>
+              <RadioButton
+                type="radio"
+                name="category"
+                value="kraft"
+              ></RadioButton>
+              <Label>Kraft</Label>
+            </div>
+            <div>
+              <RadioButton
+                type="radio"
+                name="category"
+                value="cardio"
+              ></RadioButton>
+              <Label>Cardio</Label>
+            </div>
+            <div>
+              <RadioButton
+                type="radio"
+                name="category"
+                value="yoga"
+              ></RadioButton>
+              <Label>Yoga</Label>
+            </div>
+          </CheckboxWrapper>
+        </Wrapper>
 
-          <LikedExercisesWrapper>
-            <Headline>
-              Deine <img type="image" alt="heart" src={HeartLikeSmall}></img>{' '}
-              Übungen:{' '}
-            </Headline>
-            {exercises
-              .filter(exercise => exercise.isLiked === true)
-              .map(exercise => (
-                <LikedExerciseItem
-                  id={exercise._id}
-                  title={exercise.title}
-                  image={exercise.image}
-                  key={exercise._id}
-                  isLiked={exercise.isLiked}
-                />
-              ))}
-          </LikedExercisesWrapper>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
-            <SubmitButton
-              type="submit"
-              value="Workout speichern"
-            ></SubmitButton>
-          </div>
-        </CreateGrid>
-        <Footer />
-      </StyledFormGrid>
+        <LikedExercisesWrapper>
+          <Headline>
+            Deine <img type="image" alt="heart" src={HeartLikeSmall}></img>{' '}
+            Übungen:{' '}
+          </Headline>
+          {exercises
+            .filter(exercise => exercise.isLiked === true)
+            .map(exercise => (
+              <LikedExerciseItem
+                id={exercise._id}
+                title={exercise.title}
+                image={exercise.image}
+                key={exercise._id}
+                isLiked={exercise.isLiked}
+              />
+            ))}
+        </LikedExercisesWrapper>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <SubmitButton type="submit" value="Workout speichern"></SubmitButton>
+        </div>
+      </CreateGrid>
     </div>
   )
 }
@@ -110,16 +101,6 @@ const LikedExercisesWrapper = styled.div`
 const CreateGrid = styled.form`
   overflow-y: scroll;
   margin-left: 20px;
-`
-
-const StyledFormGrid = styled.div`
-  display: grid;
-  grid-template-rows: 60px auto 55px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 `
 
 const WorkoutNameInput = styled.input`
@@ -162,7 +143,3 @@ const SubmitButton = styled.input`
   border-radius: 3px;
   margin: 30px 0;
 `
-
-/* Create.propTypes = {
-  Headline: PropTypes.string.isRequired,
-} */

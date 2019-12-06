@@ -1,16 +1,11 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
-import Globalstyle from './GlobalStyle'
-import Grid from './Grid'
 import styled from 'styled-components/macro'
-import Exercise from './Exercise'
+import React from 'react'
+import Workout from './Workout'
 
 export default function PersonalWorkoutList({ workouts, exercises }) {
   return (
-    <Grid>
-      <Globalstyle />
-      <Header></Header>
+    <>
+      <WorkoutsHeadline>Übersicht deiner Workouts:</WorkoutsHeadline>
       <WorkoutsOverview>
         {workouts.map(workout => {
           const exerciseIds = workout.exercises
@@ -19,16 +14,16 @@ export default function PersonalWorkoutList({ workouts, exercises }) {
           const filteredExercises = exercises.filter(
             exercise => exercise._id === firstExerciseId
           )
-
           return (
-            <div>
-              <img src={filteredExercises[0].image} />
-            </div>
+            <Workout
+              image={filteredExercises[0].image}
+              workoutName={workout.workoutName}
+              category={workout.category}
+            />
           )
         })}
       </WorkoutsOverview>
-      <Footer></Footer>
-    </Grid>
+    </>
   )
 }
 
@@ -36,7 +31,12 @@ const WorkoutsOverview = styled.div`
   display: Grid;
   grid-template-columns: 1fr;
   margin: 0 40px;
-  row-gap: 30px;
+  row-gap: 80px;
   margin-right: 10px;
-  overflow-y: scroll;
+`
+const WorkoutsHeadline = styled.h1`
+  font-size: 17px;
+  color: #647d91;
+  margin-top: 20px;
+  margin-left: 20px;
 `
