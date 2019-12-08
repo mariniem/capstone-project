@@ -50,4 +50,5 @@ const ExerciseGrid = styled.div`
   justify-items: center;
   row-gap: 25px;
   overflow-y: scroll;
+  margin-bottom: 10px;
 `

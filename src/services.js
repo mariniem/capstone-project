@@ -13,8 +13,6 @@ export function patchExercise(exercise) {
 }
 
 export function postPersonalWorkout(workout) {
-  console.log(workout)
-
   return fetch('/workouts', {
     method: 'POST',
     body: JSON.stringify(workout),
