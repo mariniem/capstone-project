@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 import DescriptionButton from './DescriptionButton'
 import ExerciseButton from './ExerciseButton'
-import ArrowDown from './Icons/Arrow down.svg'
+import ArrowDown from '../Icons/Arrow down.svg'
 
 export default function ToggleTitleDescription({ title, description }) {
   const [isDescriptionShown, setIsDescriptionShwon] = useState(false)

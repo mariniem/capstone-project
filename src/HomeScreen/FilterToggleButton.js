@@ -1,14 +1,13 @@
 import styled from 'styled-components/macro'
 import React from 'react'
-import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
+import HeartLikeSmall from '../Icons/HeartLikeSmall.svg'
 
 export default function FilterToggleButton({ isLiked, heartOnClick }) {
   const Label = styled.label`
-    position: relative;
+    position: absolute;
     display: inline-block;
     width: 10em;
-    height: 3.5em;
-    left: 240px;
+    right: 0px;
     top: 0px;
     font-size: 14px;
     color: #647d91;
@@ -44,15 +43,22 @@ export default function FilterToggleButton({ isLiked, heartOnClick }) {
     }
   `
 
+  const Container = styled.div`
+    position: relative;
+    height: 3.5em;
+  `
+
   return (
-    <Label
-      onClick={() => {
-        heartOnClick()
-      }}
-    >
-      Nur <img type="image" alt="heart" src={HeartLikeSmall}></img> Übungen
-      <Checkbox type="checkbox" />
-      <Slider isLiked={isLiked}></Slider>
-    </Label>
+    <Container>
+      <Label
+        onClick={() => {
+          heartOnClick()
+        }}
+      >
+        Nur <img type="image" alt="heart" src={HeartLikeSmall}></img> Übungen
+        <Checkbox type="checkbox" />
+        <Slider isLiked={isLiked}></Slider>
+      </Label>
+    </Container>
   )
 }
