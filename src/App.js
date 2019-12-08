@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './Home'
+import Home from './HomeScreen/Home'
 import AppLayout from './AppLayout'
-import Create from './Create'
-import PersonalWorkoutList from './PersonalWorkoutList'
+import Create from './CreateScreen/Create'
+import PersonalWorkoutList from './FavoritesScreen/PersonalWorkoutList'
 import {
   getExercises,
   patchExercise,

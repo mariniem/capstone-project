@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import React from 'react'
-import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
+import HeartLikeSmall from '../Icons/HeartLikeSmall.svg'
 
 export default function FilterToggleButton({ isLiked, heartOnClick }) {
   const Label = styled.label`

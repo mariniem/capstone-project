@@ -14,9 +14,12 @@ export default function PersonalWorkoutList({ workouts, exercises }) {
           const filteredExercises = exercises.filter(
             exercise => exercise._id === firstExerciseId
           )
+          let image
+
+          if (filteredExercises.length > 0) image = filteredExercises[0].image
           return (
             <Workout
-              image={filteredExercises[0].image}
+              image={image}
               workoutName={workout.workoutName}
               category={workout.category}
             />

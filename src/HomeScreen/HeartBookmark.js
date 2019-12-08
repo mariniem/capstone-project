@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import React from 'react'
-import HeartLike from './Icons/HeartLike.svg'
-import HeartUnlike from './Icons/HeartUnlike.svg'
+import HeartLike from '../Icons/HeartLike.svg'
+import HeartUnlike from '../Icons/HeartUnlike.svg'
 
 export default function({ heartOnClick, isLiked }) {
   const showLike = isLiked ? HeartLike : HeartUnlike

@@ -1,30 +1,62 @@
 import styled from 'styled-components/macro'
-import React from 'react'
-import HeartLikeSmall from './Icons/HeartLikeSmall.svg'
+import React, { useState } from 'react'
+import HeartLikeSmall from '../Icons/HeartLikeSmall.svg'
 import LikedExerciseItem from './LikedExerciseItem'
 
-/* import PropTypes from 'prop-types' */
-
 export default function Create({ exercises, onSubmit }) {
+  const [checkedExercises, setCheckedExercises] = useState([])
+
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
     const formData = new FormData(form)
     const data = Object.fromEntries(formData)
-    console.log(form)
+    data['exercises'] = [...checkedExercises]
+
+    if (data['category'] === undefined) {
+      alert('Bitte Kategorie auswählen')
+      return
+    }
+
+    if (checkedExercises.length === 0) {
+      alert('Bitte mindestens eine Übung auswählen')
+      return
+    }
+    alert('Dein Workout wurde erfolgreich gespeichert.')
+
     onSubmit(data)
-    //form.reset()
+    form.reset()
+    setCheckedExercises([])
     form.title.focus()
   }
+
+  function handleOnExerciseCheckChange(e) {
+    const id = e.target.name
+    const isChecked = e.target.checked
+
+    if (isChecked === true) {
+      setCheckedExercises([...checkedExercises, id])
+    } else {
+      const index = checkedExercises.findIndex(exercise => exercise === id)
+
+      setCheckedExercises([
+        ...checkedExercises.slice(0, index),
+        ...checkedExercises.slice(index + 1),
+      ])
+    }
+  }
+
   return (
     <div>
       <CreateGrid onSubmit={handleSubmit}>
         <Label>
-          <Headline>Name deines Workouts:</Headline>
+          <Headline>Name deines individuellen Workouts:</Headline>
+          <p>{checkedExercises.join(',')}</p>
           <WorkoutNameInput
             type="text"
             id="title"
             name="workoutName"
+            placeholder="Name deines Workouts"
             required
           ></WorkoutNameInput>
         </Label>
@@ -73,6 +105,7 @@ export default function Create({ exercises, onSubmit }) {
                 image={exercise.image}
                 key={exercise._id}
                 isLiked={exercise.isLiked}
+                onChange={handleOnExerciseCheckChange}
               />
             ))}
         </LikedExercisesWrapper>

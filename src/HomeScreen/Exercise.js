@@ -32,13 +32,13 @@ const ExerciseWrapper = styled.section`
   border-radius: 5px;
   box-shadow: 0 5px 20px #0002;
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 140px;
+  height: 140px;
 `
 
 const ExerciseImages = styled.img`
-  width: 130px;
-  height: 130px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   position: absolute;
   z-index: -1;
