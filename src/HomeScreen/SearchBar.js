@@ -2,24 +2,32 @@ import styled from 'styled-components/macro'
 import React from 'react'
 import SearchIcon from '../Icons/Header/SearchIcon.svg'
 
-export default function SearchBar() {
+export default function SearchBar({ onInput }) {
   return (
-    <SearchForm /* onSubmit={onSubmit} */>
-      <Label type="search">
-        <SearchImage type="image" alt="Search Icon" src={SearchIcon} />
-        <SearchInputField
-          type="search"
-          name="search"
-          /* placeholder="Suche..." */
-        ></SearchInputField>
-      </Label>
+    <SearchForm>
+      <Label htmlFor="search"></Label>
+
+      <SearchImage type="image" alt="Search Icon" src={SearchIcon} />
+
+      <SearchInputField
+        onInput={onInput}
+        type="search"
+        name="search"
+        id="search"
+        placeholder="Suche..."
+      ></SearchInputField>
     </SearchForm>
   )
 }
 
-const SearchForm = styled.form``
+const SearchForm = styled.form`
+  display: flex;
+  background: grey;
+`
 
-const Label = styled.label``
+const Label = styled.label`
+  display: none;
+`
 
 const SearchInputField = styled.input`
   /* border-bottom: solid 1px black; */
@@ -41,8 +49,8 @@ const SearchImage = styled.img`
   bottom: 5px;
 `
 
-const SearchLine = styled.div`
+/* const SearchLine = styled.div`
   height: 1px;
   width: 320px;
   color: black;
-`
+` */

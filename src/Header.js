@@ -1,10 +1,15 @@
 import styled from 'styled-components/macro'
 import React from 'react'
 import headerLogo from '../src/Icons/Header/Header.svg'
-import SearchBar from './HomeScreen/SearchBar'
-/* import SearchIcon from './Icons/Header/SearchIcon.svg' */
+import SearchBar from '../src/HomeScreen/SearchBar'
 
-export default function Header() {
+export default function Header({
+  onInput,
+  handleInput,
+  onSubmit,
+  exercises,
+  input,
+}) {
   const HeaderLogo = styled.img`
     z-index: +1;
   `
@@ -12,7 +17,13 @@ export default function Header() {
   return (
     <>
       <HeaderLogo src={headerLogo}></HeaderLogo>
-      <SearchBar></SearchBar>
+      <SearchBar onInput={event => handleInput(event.target.value)}>
+        {/*    {exercises.filter(item => {
+          const title = item.title.toLowerCase()
+          const query = input.toLowerCase()
+          return query === '' || title.includes(query)
+        })} */}
+      </SearchBar>
     </>
   )
 }

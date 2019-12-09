@@ -14,7 +14,8 @@ import {
 export default function App() {
   const [exercises, setExercises] = useState([])
   const [workouts, setWorkouts] = useState([])
-
+  const [input, setInput] = useState('')
+  console.log(input)
   useEffect(() => {
     getExercises().then(setExercises)
     getWorkouts().then(setWorkouts)
@@ -43,10 +44,14 @@ export default function App() {
   }
   return (
     <Router>
-      <AppLayout>
+      <AppLayout handleInput={handleInput}>
         <Switch>
           <Route exact path="/">
-            <Home exercises={exercises} heartOnClick={heartOnClick}></Home>
+            <Home
+              exercises={exercises}
+              input={input}
+              heartOnClick={heartOnClick}
+            ></Home>
           </Route>
           <Route path="/create">
             <Create
@@ -64,4 +69,7 @@ export default function App() {
       </AppLayout>
     </Router>
   )
+  function handleInput(input) {
+    setInput(input)
+  }
 }

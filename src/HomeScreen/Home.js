@@ -6,7 +6,7 @@ import FilterToggleButton from './FilterToggleButton'
 
 //import exerciseData from './exercises.json'
 
-export default function Home({ exercises, heartOnClick }) {
+export default function Home({ exercises, heartOnClick, input }) {
   const [isOnlyLikedShown, setIsOnlyLikedShown] = useState(false)
 
   return (
@@ -19,6 +19,11 @@ export default function Home({ exercises, heartOnClick }) {
         {isOnlyLikedShown
           ? exercises
               .filter(exercise => exercise.isLiked === true)
+              .filter(item => {
+                const title = item.title.toLowerCase()
+                const query = input.toLowerCase()
+                return query === '' || title.includes(query)
+              })
               .map((exercise, id) => (
                 <Exercise
                   title={exercise.title}
@@ -29,16 +34,22 @@ export default function Home({ exercises, heartOnClick }) {
                   isLiked={exercise.isLiked}
                 />
               ))
-          : exercises.map((exercise, id) => (
-              <Exercise
-                title={exercise.title}
-                description={exercise.description}
-                image={exercise.image}
-                key={exercise.id}
-                heartOnClick={() => heartOnClick(id)}
-                isLiked={exercise.isLiked}
-              />
-            ))}
+          : exercises
+              .filter(item => {
+                const title = item.title.toLowerCase()
+                const query = input.toLowerCase()
+                return query === '' || title.includes(query)
+              })
+              .map((exercise, id) => (
+                <Exercise
+                  title={exercise.title}
+                  description={exercise.description}
+                  image={exercise.image}
+                  key={exercise.id}
+                  heartOnClick={() => heartOnClick(id)}
+                  isLiked={exercise.isLiked}
+                />
+              ))}
       </ExerciseGrid>
     </div>
   )
