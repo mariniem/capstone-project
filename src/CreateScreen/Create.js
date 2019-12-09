@@ -51,7 +51,6 @@ export default function Create({ exercises, onSubmit }) {
       <CreateGrid onSubmit={handleSubmit}>
         <Label>
           <Headline>Name deines individuellen Workouts:</Headline>
-          <p>{checkedExercises.join(',')}</p>
           <WorkoutNameInput
             type="text"
             id="title"
