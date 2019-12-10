@@ -44,6 +44,5 @@ const ExerciseGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   row-gap: 25px;
-  overflow-y: scroll;
   margin-bottom: 10px;
 `

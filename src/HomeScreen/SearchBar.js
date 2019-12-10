@@ -55,7 +55,6 @@ const SearchImage = styled.img`
 
 const SearchInputField = styled.input`
   border: solid 0.5px black;
-  /*  border: solid 1px transparent; */
   z-index: 1;
   position: absolute;
   left: 0;
