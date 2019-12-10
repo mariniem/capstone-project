@@ -6,6 +6,7 @@ import SearchBar from '../src/HomeScreen/SearchBar'
 export default function Header({
   onInput,
   handleInput,
+  searchInput,
   onSubmit,
   exercises,
   input,
@@ -17,13 +18,14 @@ export default function Header({
   return (
     <>
       <HeaderLogo src={headerLogo}></HeaderLogo>
-      <SearchBar onInput={event => handleInput(event.target.value)}>
-        {/*    {exercises.filter(item => {
-          const title = item.title.toLowerCase()
-          const query = input.toLowerCase()
-          return query === '' || title.includes(query)
-        })} */}
-      </SearchBar>
+      <SearchBar
+        key="searchBar1"
+        searchInput={searchInput}
+        onInput={event => {
+          console.log(event.target)
+          handleInput(event.target.value)
+        }}
+      ></SearchBar>
     </>
   )
 }

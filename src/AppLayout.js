@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import Header from './Header'
 import Footer from './Footer'
 
-export default function AppLayout({ children, handleInput }) {
+export default function AppLayout({ children, handleInput, searchInput }) {
   const HeaderContainer = styled.div`
     border-bottom: 1.5px solid #647d91;
     height: 60px;
@@ -43,7 +43,11 @@ export default function AppLayout({ children, handleInput }) {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <HeaderContainer>
-        <Header handleInput={handleInput} />
+        <Header
+          key="header1"
+          handleInput={handleInput}
+          searchInput={searchInput}
+        />
       </HeaderContainer>
       <FooterContainer>
         <Footer />

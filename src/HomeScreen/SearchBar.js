@@ -2,20 +2,27 @@ import styled from 'styled-components/macro'
 import React from 'react'
 import SearchIcon from '../Icons/Header/SearchIcon.svg'
 
-export default function SearchBar({ onInput }) {
+export default function SearchBar({ onInput, searchInput }) {
+  //({ onInput, searchInput })
+
+  function handleSubmit(event) {
+    event.preventDefault()
+  }
+
   return (
-    <SearchForm>
+    <SearchForm onSubmit={handleSubmit}>
       <Label htmlFor="search"></Label>
 
-      <SearchImage type="image" alt="Search Icon" src={SearchIcon} />
+      <SearchImage type="image" alt="Search Icon" src={SearchIcon} onClick="" />
 
       <SearchInputField
-        onInput={onInput}
-        type="search"
+        onChange={onInput}
+        type="text"
         name="search"
         id="search"
         placeholder="Suche..."
-      ></SearchInputField>
+        value={searchInput}
+      />
     </SearchForm>
   )
 }
@@ -29,6 +36,14 @@ const Label = styled.label`
   display: none;
 `
 
+const SearchImage = styled.img`
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+`
+
 const SearchInputField = styled.input`
   /* border-bottom: solid 1px black; */
   border: solid 1px transparent;
@@ -39,14 +54,6 @@ const SearchInputField = styled.input`
   height: 20px;
   width: 320px;
   margin-left: 20px;
-`
-
-const SearchImage = styled.img`
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  right: 10px;
-  bottom: 5px;
 `
 
 /* const SearchLine = styled.div`
