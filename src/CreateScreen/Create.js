@@ -51,7 +51,6 @@ export default function Create({ exercises, onSubmit }) {
       <CreateGrid onSubmit={handleSubmit}>
         <Label>
           <Headline>Name deines individuellen Workouts:</Headline>
-          <p>{checkedExercises.join(',')}</p>
           <WorkoutNameInput
             type="text"
             id="title"
@@ -68,7 +67,7 @@ export default function Create({ exercises, onSubmit }) {
               <RadioButton
                 type="radio"
                 name="category"
-                value="kraft"
+                value="Kraft"
               ></RadioButton>
               <Label>Kraft</Label>
             </div>
@@ -76,7 +75,7 @@ export default function Create({ exercises, onSubmit }) {
               <RadioButton
                 type="radio"
                 name="category"
-                value="cardio"
+                value="Cardio"
               ></RadioButton>
               <Label>Cardio</Label>
             </div>
@@ -84,7 +83,7 @@ export default function Create({ exercises, onSubmit }) {
               <RadioButton
                 type="radio"
                 name="category"
-                value="yoga"
+                value="Yoga"
               ></RadioButton>
               <Label>Yoga</Label>
             </div>

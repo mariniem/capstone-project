@@ -14,6 +14,7 @@ import {
 export default function App() {
   const [exercises, setExercises] = useState([])
   const [workouts, setWorkouts] = useState([])
+  const [searchInput, setInput] = useState('')
 
   useEffect(() => {
     getExercises().then(setExercises)
@@ -36,18 +37,26 @@ export default function App() {
     postPersonalWorkout(workoutData).then(results => {
       console.log(results)
     })
-
-    /* then(exercise => {
-      setExercises([...exercises, exercise])
-    }) */
   }
   return (
     <Router>
-      <AppLayout>
+      <AppLayout
+        key="appLayout1"
+        handleInput={handleInput}
+        searchInput={searchInput}
+      >
         <Switch>
-          <Route exact path="/">
-            <Home exercises={exercises} heartOnClick={heartOnClick}></Home>
-          </Route>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Home
+                exercises={exercises}
+                searchInput={searchInput}
+                heartOnClick={heartOnClick}
+              />
+            )}
+          ></Route>
           <Route path="/create">
             <Create
               onSubmit={createPersonalWorkout}
@@ -64,4 +73,7 @@ export default function App() {
       </AppLayout>
     </Router>
   )
+  function handleInput(newInput) {
+    setInput(newInput)
+  }
 }

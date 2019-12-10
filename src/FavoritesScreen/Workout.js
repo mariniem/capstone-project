@@ -24,7 +24,6 @@ const WorkoutImage = styled.img`
   position: absolute;
   border-radius: 2px;
   box-shadow: 0 5px 20px #0002;
-  border: 2px solid #647d91;
 `
 const WorkoutName = styled.p`
   font-size: 17px;
