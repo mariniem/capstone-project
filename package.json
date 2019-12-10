@@ -1,5 +1,5 @@
 {
-  "name": "capstone-project",
+  "name": "trayn",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,7 +36,7 @@
   "proxy": "http://localhost:3333",
   "eslintConfig": {
     "extends": [
-      "react-app",
+      "trayn-app",
       "plugin:cypress/recommended"
     ]
   },
@@ -56,7 +56,7 @@
   "author": "Marilena Niemann <mari_niemann@web.de>",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/mariniem/capstone-project/issues"
+    "url": "https://github.com/mariniem/trayn/issues"
   },
-  "homepage": "https://github.com/mariniem/capstone-project#readme"
+  "homepage": "https://github.com/mariniem/trayn#readme"
 }
