@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import Exercise from './Exercise'
-
 import FilterToggleButton from './FilterToggleButton'
 
 //import exerciseData from './exercises.json'
 
 export default function Home({ exercises, heartOnClick, searchInput }) {
   const [isOnlyLikedShown, setIsOnlyLikedShown] = useState(false)
-  /* const [selectedLikedFilter, setSelectedLikedFilter] = useState({
-    'isOnlyLikedShown': false;
-  }) */
 
   if (isOnlyLikedShown)
     exercises = exercises.filter(exercise => exercise.isLiked === true)
@@ -20,7 +16,6 @@ export default function Home({ exercises, heartOnClick, searchInput }) {
       <FilterToggleButton
         heartOnClick={() => setIsOnlyLikedShown(!isOnlyLikedShown)}
         isLiked={isOnlyLikedShown}
-        /* selectedLikedFilter={selectedLikedFilter} */
       ></FilterToggleButton>
       <ExerciseGrid>
         {exercises
