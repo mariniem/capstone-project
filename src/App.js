@@ -11,7 +11,7 @@ import {
   getWorkouts,
 } from './services'
 
-export default function App() {
+export default function App(isSearchImageClicked) {
   const [exercises, setExercises] = useState([])
   const [workouts, setWorkouts] = useState([])
   const [searchInput, setInput] = useState('')
@@ -44,6 +44,7 @@ export default function App() {
         key="appLayout1"
         handleInput={handleInput}
         searchInput={searchInput}
+        active={isSearchImageClicked}
       >
         <Switch>
           <Route

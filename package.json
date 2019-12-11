@@ -36,7 +36,7 @@
   "proxy": "http://localhost:3333",
   "eslintConfig": {
     "extends": [
-      "trayn-app",
+      "react-app",
       "plugin:cypress/recommended"
     ]
   },

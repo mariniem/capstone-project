@@ -23,14 +23,14 @@ const LikedExerciseWrapper = styled.div`
   grid-template-columns: 1fr 3fr 1fr;
   border: solid 1.5px #647d91;
   border-radius: 1px;
-  height: 53px;
+  height: 62px;
   width: 340px;
   margin-top: 5px;
   margin: 15px 0;
 `
 const LikedExerciseImages = styled.img`
-  height: 50px;
-  width: 50px;
+  height: 59px;
+  width: 59px;
 `
 const LikedExerciseTitle = styled.p`
   color: #647d91;

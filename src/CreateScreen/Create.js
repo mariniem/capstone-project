@@ -146,7 +146,7 @@ const WorkoutNameInput = styled.input`
 const Headline = styled.h1`
   font-size: 17px;
   color: #647d91;
-  margin-top: 20px;
+  margin-top: 10px;
 `
 const CheckboxWrapper = styled.div`
   display: flex;

@@ -3,14 +3,26 @@ import styled from 'styled-components/macro'
 import Header from './Header'
 import Footer from './Footer'
 
-export default function AppLayout({ children, handleInput, searchInput }) {
+export default function AppLayout({
+  children,
+  handleInput,
+  searchInput,
+  handleButtonSize,
+  searchBarSize,
+  isHeaderLarge,
+  isSearchImageClicked,
+}) {
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <HeaderContainer>
+      <HeaderContainer
+        active={isSearchImageClicked} /* active={!isHeaderLarge} */
+      >
         <Header
-          key="header1"
+          key="header"
           handleInput={handleInput}
           searchInput={searchInput}
+
+          /* active={active} */
         />
       </HeaderContainer>
       <FooterContainer>
@@ -24,7 +36,7 @@ export default function AppLayout({ children, handleInput, searchInput }) {
 
 const HeaderContainer = styled.div`
   border-bottom: 1.5px solid #647d91;
-  height: 60px;
+  height: ${props => (props.active ? '80px' : '60px')};
   display: grid;
   justify-items: center;
   align-items: center;
