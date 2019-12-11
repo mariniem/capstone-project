@@ -8,12 +8,8 @@ export default function Header({
   handleInput,
   searchInput,
   active,
-  isSearchImageClicked,
+  handleClick,
 }) {
-  /* const [isHeaderLarge, setIsHeaderLarge] = useState(false) */
-
-  /*  const handleButtonSize = () => setIsHeaderLarge(!isHeaderLarge) */
-
   return (
     <>
       <HeaderLogo src={headerLogo}></HeaderLogo>
@@ -22,9 +18,8 @@ export default function Header({
           key="searchBar"
           searchInput={searchInput}
           handleInput={handleInput}
-          active={isSearchImageClicked} /* active={!isHeaderLarge} */
-
-          /*  onClick={handleButtonSize} */
+          active={active}
+          handleClick={handleClick}
         ></SearchBar>
       </Route>
     </>
