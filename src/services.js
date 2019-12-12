@@ -26,7 +26,7 @@ export function getWorkouts() {
   return fetch('/workouts').then(res => res.json())
 }
 
-export function deleteWorkouts(id) {
+export function deleteWorkout(id) {
   return fetch('/workouts/' + id, {
     method: 'DELETE',
   }).then(res => res.json())

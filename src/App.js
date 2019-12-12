@@ -9,12 +9,12 @@ import {
   patchExercise,
   postPersonalWorkout,
   getWorkouts,
-  deleteWorkouts,
+  deleteWorkout,
 } from './services'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
-export default function App(isSearchImageClicked, handleClick) {
+export default function App(isSearchImageClicked) {
   const [exercises, setExercises] = useState([])
   const [workouts, setWorkouts] = useState([])
   const [searchInput, setInput] = useState('')
@@ -43,8 +43,8 @@ export default function App(isSearchImageClicked, handleClick) {
   }
 
   function removeWorkout(id) {
-    deleteWorkouts(id).then(deleteWorkouts => {
-      setWorkouts(workouts.filter(workout => workout.id !== deleteWorkouts.id))
+    deleteWorkout(id).then(deletedWorkout => {
+      setWorkouts(workouts.filter(workout => workout.id !== deletedWorkout.id))
       getWorkouts().then(setWorkouts)
     })
   }

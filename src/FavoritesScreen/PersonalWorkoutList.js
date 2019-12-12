@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro'
 import React from 'react'
 import Workout from './Workout'
-/* import DeleteIcon from '../Icons/DeleteIcon.svg' */
 
 export default function PersonalWorkoutList({
   workouts,
@@ -23,15 +22,12 @@ export default function PersonalWorkoutList({
 
           if (filteredExercises.length > 0) image = filteredExercises[0].image
           return (
-            <WorkoutWrapper>
-              <Workout
-                image={image}
-                workoutName={workout.workoutName}
-                category={workout.category}
-                handleClick={() => handleClick(workout._id)}
-              />
-              {/*  <DeleteImage src={DeleteIcon} onClick={handleClick}></DeleteImage> */}
-            </WorkoutWrapper>
+            <Workout
+              image={image}
+              workoutName={workout.workoutName}
+              category={workout.category}
+              handleClick={() => handleClick(workout._id)}
+            />
           )
         })}
       </WorkoutsOverview>
@@ -42,21 +38,8 @@ export default function PersonalWorkoutList({
 const WorkoutsOverview = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  /* margin: 0 40px; */
   row-gap: 80px;
-  /* margin-right: 10px; */
-  position: absolute;
-  justify-items: center;
-  align-content: center;
-`
-
-const WorkoutWrapper = styled.div`
-  /*  display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  align-content: center; */
+  margin-left: 20px;
 `
 
 const WorkoutsHeadline = styled.h1`
@@ -65,9 +48,3 @@ const WorkoutsHeadline = styled.h1`
   margin-top: 20px;
   margin-left: 20px;
 `
-/* 
-const DeleteImage = styled.img`
-  position: relative;
-  right: -210px;
-  top: -40px;
-` */

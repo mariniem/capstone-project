@@ -19,10 +19,8 @@ const WorkoutWrapper = styled.section`
 `
 
 const WorkoutImage = styled.img`
-  gap: 20px;
-  box-shadow: 0 5px 20px #0002;
   height: 180px;
-  width: 320px;
+  width: 330px;
   opacity: 0.8;
   position: absolute;
   border-radius: 2px;
@@ -31,7 +29,7 @@ const WorkoutImage = styled.img`
 
 const DeleteImage = styled.img`
   position: relative;
-  left: 290px;
+  left: 300px;
   top: -85px;
 `
 
@@ -53,8 +51,8 @@ const WorkoutCategory = styled.p`
 const StartButton = styled.button`
   border-radius: 5px;
   position: relative;
-  right: -235px;
-  bottom: -55px;
+  right: -250px;
+  bottom: -53px;
   margin-left: 10px;
   background: #647d91;
   border: none;
