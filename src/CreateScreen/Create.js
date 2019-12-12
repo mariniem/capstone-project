@@ -2,6 +2,8 @@ import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 import HeartLikeSmall from '../Icons/HeartLikeSmall.svg'
 import LikedExerciseItem from './LikedExerciseItem'
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 export default function Create({ exercises, onSubmit }) {
   const [checkedExercises, setCheckedExercises] = useState([])
@@ -14,15 +16,50 @@ export default function Create({ exercises, onSubmit }) {
     data['exercises'] = [...checkedExercises]
 
     if (data['category'] === undefined) {
-      alert('Bitte Kategorie auswählen')
+      confirmAlert({
+        message: 'Bitte eine Kategorie auswählen',
+        buttons: [
+          {
+            label: 'Ok',
+          },
+          {
+            label: 'Abbrechen',
+          },
+        ],
+      })
+    } else if (checkedExercises.length === 0) {
+      /* /alert('Bitte Kategorie auswählen')
       return
+    } */
+      confirmAlert({
+        message: 'Bitte mindestens eine Übung auswählen',
+        buttons: [
+          {
+            label: 'Ok',
+          },
+          {
+            label: 'Abbrechen',
+          },
+        ],
+      })
+    } else {
+      confirmAlert({
+        message: 'Dein Workoutout wurde erfolgreich gespeichert',
+        buttons: [
+          {
+            label: 'Ok',
+          },
+          {
+            label: '',
+          },
+        ],
+      })
     }
 
-    if (checkedExercises.length === 0) {
-      alert('Bitte mindestens eine Übung auswählen')
+    /* alert('Bitte mindestens eine Übung auswählen')
       return
     }
-    alert('Dein Workout wurde erfolgreich gespeichert.')
+    alert('Dein Workout wurde erfolgreich gespeichert.')  */
 
     onSubmit(data)
     form.reset()

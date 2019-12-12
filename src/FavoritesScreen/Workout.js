@@ -1,12 +1,14 @@
 import styled from 'styled-components/macro'
 import React from 'react'
+import DeleteIcon from '../Icons/DeleteIcon.svg'
 
-export default function Workout({ workoutName, image, category }) {
+export default function Workout({ workoutName, image, category, handleClick }) {
   return (
     <WorkoutWrapper>
       <WorkoutImage type="image" alt="pictures of exercises" src={image} />
       <WorkoutName workoutName={workoutName}>{workoutName}</WorkoutName>
       <WorkoutCategory category={category}>{category}</WorkoutCategory>
+      <DeleteImage src={DeleteIcon} onClick={handleClick}></DeleteImage>
       <StartButton>Starten</StartButton>
     </WorkoutWrapper>
   )
@@ -17,14 +19,22 @@ const WorkoutWrapper = styled.section`
 `
 
 const WorkoutImage = styled.img`
+  gap: 20px;
   box-shadow: 0 5px 20px #0002;
   height: 180px;
-  width: 300px;
-  opacity: 0.5;
+  width: 320px;
+  opacity: 0.8;
   position: absolute;
   border-radius: 2px;
   box-shadow: 0 5px 20px #0002;
 `
+
+const DeleteImage = styled.img`
+  position: relative;
+  left: 290px;
+  top: -85px;
+`
+
 const WorkoutName = styled.p`
   font-size: 17px;
   color: #647d91;
