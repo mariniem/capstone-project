@@ -1,27 +1,29 @@
 import styled from 'styled-components/macro'
-import React, { useState } from 'react'
+import React from 'react'
 import SearchIcon from '../Icons/Header/SearchIcon.svg'
 
-export default function SearchBar({ handleInput, searchInput }) {
-  const [isSearchImageClicked, setIsSearchImageClicked] = useState(false)
-
-  function handleSubmit(event) {
-    event.preventDefault()
-  }
-
+export default function SearchBar({
+  handleInput,
+  searchInput,
+  active,
+  handleClick,
+}) {
   return (
-    <SearchForm onSubmit={handleSubmit}>
+    <SearchBarForm>
       <Label htmlFor="search"></Label>
 
       <SearchImage
         type="image"
         alt="Search Icon"
         src={SearchIcon}
-        onClick={() => setIsSearchImageClicked(!isSearchImageClicked)}
+        onClick={handleClick}
+        isSearchImageClicked={active}
       />
-      {isSearchImageClicked ? (
+
+      {active ? (
         <SearchInputField
           onInput={event => handleInput(event.target.value)}
+          isSearchImageClicked={active}
           type="text"
           name="search"
           id="search"
@@ -32,13 +34,12 @@ export default function SearchBar({ handleInput, searchInput }) {
       ) : (
         ''
       )}
-    </SearchForm>
+    </SearchBarForm>
   )
 }
 
-const SearchForm = styled.form`
-  display: flex;
-  background: grey;
+const SearchBarForm = styled.form`
+  display: grid;
 `
 
 const Label = styled.label`
@@ -50,16 +51,18 @@ const SearchImage = styled.img`
   height: 15px;
   position: absolute;
   right: 10px;
-  bottom: 5px;
+  bottom: 10px;
 `
 
 const SearchInputField = styled.input`
-  border: solid 0.5px black;
   z-index: 1;
   position: absolute;
   left: 0;
   top: 38px;
-  height: 18px;
+  height: 25px;
   width: 320px;
-  margin-left: 20px;
+  margin: 10px 0px 0px 20px;
+  background: rgba(100, 125, 145, 0.1);
+  border: transparent;
+  padding: 0 8px;
 `

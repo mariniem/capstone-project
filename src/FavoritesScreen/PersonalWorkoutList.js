@@ -2,7 +2,11 @@ import styled from 'styled-components/macro'
 import React from 'react'
 import Workout from './Workout'
 
-export default function PersonalWorkoutList({ workouts, exercises }) {
+export default function PersonalWorkoutList({
+  workouts,
+  exercises,
+  handleClick,
+}) {
   return (
     <>
       <WorkoutsHeadline>Übersicht deiner Workouts:</WorkoutsHeadline>
@@ -22,6 +26,7 @@ export default function PersonalWorkoutList({ workouts, exercises }) {
               image={image}
               workoutName={workout.workoutName}
               category={workout.category}
+              handleClick={() => handleClick(workout._id)}
             />
           )
         })}
@@ -31,12 +36,12 @@ export default function PersonalWorkoutList({ workouts, exercises }) {
 }
 
 const WorkoutsOverview = styled.div`
-  display: Grid;
+  display: grid;
   grid-template-columns: 1fr;
-  margin: 0 40px;
-  row-gap: 80px;
-  margin-right: 10px;
+  row-gap: 100px;
+  margin-left: 20px;
 `
+
 const WorkoutsHeadline = styled.h1`
   font-size: 17px;
   color: #647d91;

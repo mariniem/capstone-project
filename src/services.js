@@ -25,3 +25,9 @@ export function postPersonalWorkout(workout) {
 export function getWorkouts() {
   return fetch('/workouts').then(res => res.json())
 }
+
+export function deleteWorkout(id) {
+  return fetch('/workouts/' + id, {
+    method: 'DELETE',
+  }).then(res => res.json())
+}

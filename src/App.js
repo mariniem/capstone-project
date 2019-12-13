@@ -9,9 +9,12 @@ import {
   patchExercise,
   postPersonalWorkout,
   getWorkouts,
+  deleteWorkout,
 } from './services'
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
-export default function App() {
+export default function App(isSearchImageClicked) {
   const [exercises, setExercises] = useState([])
   const [workouts, setWorkouts] = useState([])
   const [searchInput, setInput] = useState('')
@@ -34,16 +37,41 @@ export default function App() {
     )
   }
   function createPersonalWorkout(workoutData) {
-    postPersonalWorkout(workoutData).then(results => {
-      console.log(results)
+    postPersonalWorkout(workoutData).then(workout => {
+      setWorkouts([...workouts, workout])
     })
   }
+
+  function removeWorkout(id) {
+    deleteWorkout(id).then(deletedWorkout => {
+      setWorkouts(workouts.filter(workout => workout.id !== deletedWorkout.id))
+      getWorkouts().then(setWorkouts)
+    })
+  }
+
+  function handleClick(id) {
+    confirmAlert({
+      title: 'Löschen bestätigen',
+      message: 'Möchten Sie dieses Workout wirklich löschen?',
+      buttons: [
+        {
+          label: 'Ja',
+          onClick: () => removeWorkout(id),
+        },
+        {
+          label: 'Nein',
+        },
+      ],
+    })
+  }
+
   return (
     <Router>
       <AppLayout
         key="appLayout1"
         handleInput={handleInput}
         searchInput={searchInput}
+        active={isSearchImageClicked}
       >
         <Switch>
           <Route
@@ -67,6 +95,7 @@ export default function App() {
             <PersonalWorkoutList
               workouts={workouts}
               exercises={exercises}
+              handleClick={handleClick}
             ></PersonalWorkoutList>
           </Route>
         </Switch>

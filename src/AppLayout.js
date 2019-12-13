@@ -1,30 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import Header from './Header'
 import Footer from './Footer'
 
 export default function AppLayout({ children, handleInput, searchInput }) {
+  const [isSearchImageClicked, setIsSearchImageClicked] = useState(false)
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <HeaderContainer>
+      <HeaderContainer active={isSearchImageClicked}>
         <Header
-          key="header1"
           handleInput={handleInput}
           searchInput={searchInput}
+          handleClick={() => setIsSearchImageClicked(!isSearchImageClicked)}
+          active={isSearchImageClicked}
         />
       </HeaderContainer>
       <FooterContainer>
         <Footer />
       </FooterContainer>
 
-      <ContentContainer>{children}</ContentContainer>
+      <ContentContainer active={isSearchImageClicked}>
+        {children}
+      </ContentContainer>
     </div>
   )
 }
 
 const HeaderContainer = styled.div`
   border-bottom: 1.5px solid #647d91;
-  height: 60px;
+  height: ${props => (props.active ? '80px' : '60px')};
   display: grid;
   justify-items: center;
   align-items: center;
@@ -53,7 +57,8 @@ const ContentContainer = styled.div`
   position: absolute;
   left: 0px;
   right: 0px;
-  top: 60px;
+  top: ${props => (props.active ? '80px' : '60px')};
   overflow-y: scroll;
   bottom: 55px;
+  margin-top: 5px;
 `
