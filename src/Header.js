@@ -15,7 +15,6 @@ export default function Header({
       <HeaderLogo src={headerLogo}></HeaderLogo>
       <Route exact path="/">
         <SearchBar
-          key="searchBar"
           searchInput={searchInput}
           handleInput={handleInput}
           active={active}

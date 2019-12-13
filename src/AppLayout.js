@@ -9,7 +9,6 @@ export default function AppLayout({ children, handleInput, searchInput }) {
     <div style={{ width: '100%', height: '100%' }}>
       <HeaderContainer active={isSearchImageClicked}>
         <Header
-          key="header"
           handleInput={handleInput}
           searchInput={searchInput}
           handleClick={() => setIsSearchImageClicked(!isSearchImageClicked)}
