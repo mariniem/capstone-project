@@ -11,6 +11,11 @@ export default function Footer() {
     border: none;
     background: none;
   `
+  const Title = styled.div`
+    color: white;
+    font-size: 10px;
+    margin-top: 4px;
+  `
 
   return (
     <>
@@ -18,21 +23,25 @@ export default function Footer() {
         <Link to="/">
           <img alt="home" src={Home}></img>
         </Link>
+        <Title>Home</Title>
       </NavButton>
       <NavButton>
         <Link to="/create">
           <img alt="create" src={Plus}></img>
         </Link>
+        <Title>Workout</Title>
       </NavButton>
       <NavButton>
         <Link to="/favorites">
           <img alt="favorites " src={Heart}></img>
         </Link>
+        <Title>Übersicht</Title>
       </NavButton>
       <NavButton>
         <Link to="/workout">
           <img alt="workout" src={TimerWorkout}></img>
         </Link>
+        <Title>Starten</Title>
       </NavButton>
     </>
   )

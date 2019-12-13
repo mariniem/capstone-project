@@ -61,4 +61,5 @@ const ContentContainer = styled.div`
   top: ${props => (props.active ? '80px' : '60px')};
   overflow-y: scroll;
   bottom: 55px;
+  margin-top: 5px;
 `

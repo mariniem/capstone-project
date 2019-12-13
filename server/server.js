@@ -42,7 +42,7 @@ app.post('/workouts', (req, res) => {
     .catch(err => res.json(err))
 })
 
-app.delete('workouts/:id', (req, res) => {
+app.delete('/workouts/:id', (req, res) => {
   Workouts.findByIdAndDelete(req.params.id)
     .then(workout => res.json(workout))
     .catch(err => res.json(err))

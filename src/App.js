@@ -37,8 +37,8 @@ export default function App(isSearchImageClicked) {
     )
   }
   function createPersonalWorkout(workoutData) {
-    postPersonalWorkout(workoutData).then(results => {
-      console.log(results)
+    postPersonalWorkout(workoutData).then(workout => {
+      setWorkouts([...workouts, workout])
     })
   }
 

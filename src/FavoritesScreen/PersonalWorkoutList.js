@@ -38,7 +38,7 @@ export default function PersonalWorkoutList({
 const WorkoutsOverview = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 80px;
+  row-gap: 100px;
   margin-left: 20px;
 `
 

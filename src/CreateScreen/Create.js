@@ -2,6 +2,10 @@ import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 import HeartLikeSmall from '../Icons/HeartLikeSmall.svg'
 import LikedExerciseItem from './LikedExerciseItem'
+import HeadlineOne from '../GlobalComponents/HeadlineOne'
+import HeadlineTwo from '../GlobalComponents/HeadlineTwo'
+import SubmitButton from '../GlobalComponents/SubmitButton'
+import InputField from '../GlobalComponents/InputField'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
@@ -87,18 +91,18 @@ export default function Create({ exercises, onSubmit }) {
     <div>
       <CreateGrid onSubmit={handleSubmit}>
         <Label>
-          <Headline>Name deines individuellen Workouts:</Headline>
-          <WorkoutNameInput
+          <HeadlineOne>Name deines individuellen Workouts:</HeadlineOne>
+          <InputField
             type="text"
             id="title"
             name="workoutName"
             placeholder="Name deines Workouts"
             required
-          ></WorkoutNameInput>
+          ></InputField>
         </Label>
 
         <Wrapper>
-          <Headline>Kategorie:</Headline>
+          <HeadlineTwo>Kategorie:</HeadlineTwo>
           <CheckboxWrapper>
             <div>
               <RadioButton
@@ -128,10 +132,10 @@ export default function Create({ exercises, onSubmit }) {
         </Wrapper>
 
         <LikedExercisesWrapper>
-          <Headline>
+          <HeadlineTwo>
             Deine <img type="image" alt="heart" src={HeartLikeSmall}></img>{' '}
             Übungen:{' '}
-          </Headline>
+          </HeadlineTwo>
           {exercises
             .filter(exercise => exercise.isLiked === true)
             .map(exercise => (
@@ -172,19 +176,6 @@ const CreateGrid = styled.form`
   margin-left: 20px;
 `
 
-const WorkoutNameInput = styled.input`
-  border: solid 1.5px #647d91;
-  border-radius: 1px;
-  height: 30px;
-  width: 340px;
-  margin-top: 5px;
-`
-
-const Headline = styled.h1`
-  font-size: 17px;
-  color: #647d91;
-  margin-top: 10px;
-`
 const CheckboxWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -200,15 +191,4 @@ const RadioButton = styled.input`
 const Label = styled.label`
   font-size: 14px;
   color: #647d91;
-`
-
-const SubmitButton = styled.input`
-  background: #647d91;
-  color: white;
-  width: 130px;
-  height: 30px;
-  padding: 5px;
-  border: 2px solid transparent;
-  border-radius: 3px;
-  margin: 30px 0;
 `

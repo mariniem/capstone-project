@@ -30,7 +30,7 @@ const WorkoutImage = styled.img`
 const DeleteImage = styled.img`
   position: relative;
   left: 300px;
-  top: -85px;
+  top: -70px;
 `
 
 const WorkoutName = styled.p`
@@ -52,7 +52,7 @@ const StartButton = styled.button`
   border-radius: 5px;
   position: relative;
   right: -250px;
-  bottom: -53px;
+  bottom: -65px;
   margin-left: 10px;
   background: #647d91;
   border: none;
