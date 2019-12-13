@@ -26,23 +26,14 @@ export default function Create({ exercises, onSubmit }) {
           {
             label: 'Ok',
           },
-          {
-            label: 'Abbrechen',
-          },
         ],
       })
     } else if (checkedExercises.length === 0) {
-      /* /alert('Bitte Kategorie auswählen')
-      return
-    } */
       confirmAlert({
         message: 'Bitte mindestens eine Übung auswählen',
         buttons: [
           {
             label: 'Ok',
-          },
-          {
-            label: 'Abbrechen',
           },
         ],
       })
@@ -53,17 +44,9 @@ export default function Create({ exercises, onSubmit }) {
           {
             label: 'Ok',
           },
-          {
-            label: '',
-          },
         ],
       })
     }
-
-    /* alert('Bitte mindestens eine Übung auswählen')
-      return
-    }
-    alert('Dein Workout wurde erfolgreich gespeichert.')  */
 
     onSubmit(data)
     form.reset()
