@@ -5,5 +5,4 @@ export default styled.h1`
   font-weight: bold;
   color: #647d91;
   margin-top: 10px;
-  margin-left: 20px;
 `

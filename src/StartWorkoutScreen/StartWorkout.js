@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 import HeadlineOne from '../GlobalComponents/HeadlineOne'
+import TimerButton from './TimerButton.js'
 
 export default function StartWorkout({ workouts, exercises, id }) {
   const [exerciseIndex, setExerciseIndex] = useState(0)
@@ -18,6 +19,7 @@ export default function StartWorkout({ workouts, exercises, id }) {
       <WorkoutImage src={exercise.image}></WorkoutImage>
       <button onClick={handleNextClick}>Next</button>
       <button onClick={handleBackClick}>Back</button>
+      <TimerButton />
     </>
   )
 
