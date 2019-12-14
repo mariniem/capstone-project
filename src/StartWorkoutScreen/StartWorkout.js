@@ -14,7 +14,7 @@ export default function StartWorkout({ workouts, exercises, id }) {
 
   return (
     <>
-      <HeadlineOne>Workout {workouts.length}</HeadlineOne>
+      <HeadlineOne>{workout.workoutName}</HeadlineOne>
       <WorkoutImage src={exercise.image}></WorkoutImage>
       <button onClick={handleNextClick}>Next</button>
       <button onClick={handleBackClick}>Back</button>
