@@ -58,8 +58,8 @@ const SearchInputField = styled.input`
   z-index: 1;
   position: absolute;
   left: 0;
-  top: 38px;
-  height: 25px;
+  top: 32px;
+  height: 22px;
   width: 320px;
   margin: 10px 0px 0px 20px;
   background: rgba(100, 125, 145, 0.1);

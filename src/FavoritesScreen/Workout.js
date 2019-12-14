@@ -1,15 +1,24 @@
 import styled from 'styled-components/macro'
 import React from 'react'
 import DeleteIcon from '../Icons/DeleteIcon.svg'
+import { Link } from 'react-router-dom'
 
-export default function Workout({ workoutName, image, category, handleClick }) {
+export default function Workout({
+  workoutId,
+  workoutName,
+  image,
+  category,
+  handleDeleteClick,
+}) {
   return (
     <WorkoutWrapper>
       <WorkoutImage type="image" alt="pictures of exercises" src={image} />
       <WorkoutName workoutName={workoutName}>{workoutName}</WorkoutName>
       <WorkoutCategory category={category}>{category}</WorkoutCategory>
-      <DeleteImage src={DeleteIcon} onClick={handleClick}></DeleteImage>
-      <StartButton>Starten</StartButton>
+      <DeleteImage src={DeleteIcon} onClick={handleDeleteClick}></DeleteImage>
+      <Link to={'/workout/' + workoutId}>
+        <StartButton>Starten</StartButton>
+      </Link>
     </WorkoutWrapper>
   )
 }

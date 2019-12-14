@@ -1,15 +1,16 @@
 import styled from 'styled-components/macro'
 import React from 'react'
+import HeadlineOne from '../GlobalComponents/HeadlineOne'
 import Workout from './Workout'
 
 export default function PersonalWorkoutList({
   workouts,
   exercises,
-  handleClick,
+  handleDeleteClick,
 }) {
   return (
     <>
-      <WorkoutsHeadline>Übersicht deiner Workouts:</WorkoutsHeadline>
+      <HeadlineOne>Übersicht deiner Workouts:</HeadlineOne>
       <WorkoutsOverview>
         {workouts.map(workout => {
           const exerciseIds = workout.exercises
@@ -24,9 +25,10 @@ export default function PersonalWorkoutList({
           return (
             <Workout
               image={image}
+              workoutId={workout._id}
               workoutName={workout.workoutName}
               category={workout.category}
-              handleClick={() => handleClick(workout._id)}
+              handleDeleteClick={() => handleDeleteClick(workout._id)}
             />
           )
         })}
@@ -39,12 +41,5 @@ const WorkoutsOverview = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 100px;
-  margin-left: 20px;
-`
-
-const WorkoutsHeadline = styled.h1`
-  font-size: 17px;
-  color: #647d91;
-  margin-top: 20px;
   margin-left: 20px;
 `
