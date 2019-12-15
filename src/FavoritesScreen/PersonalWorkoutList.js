@@ -10,7 +10,9 @@ export default function PersonalWorkoutList({
 }) {
   return (
     <>
-      <HeadlineOne>Übersicht deiner Workouts:</HeadlineOne>
+      <HeadlineOne style={{ marginLeft: '20px' }}>
+        Übersicht deiner Workouts:
+      </HeadlineOne>
       <WorkoutsOverview>
         {workouts.map(workout => {
           const exerciseIds = workout.exercises

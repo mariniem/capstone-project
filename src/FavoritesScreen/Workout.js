@@ -30,7 +30,7 @@ const WorkoutWrapper = styled.section`
 const WorkoutImage = styled.img`
   height: 180px;
   width: 330px;
-  opacity: 0.8;
+  opacity: 0.95;
   position: absolute;
   border-radius: 2px;
   box-shadow: 0 5px 20px #0002;

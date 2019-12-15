@@ -14,7 +14,7 @@ export default function TimerButton({ workouts, exercises, id }) {
   return (
     <TimerWrapper onClick={handleOnClick}>
       <CircularProgressbar
-        maxValue="30"
+        maxValue="60"
         value={timerValue}
         text={timerValue}
         styles={buildStyles({
@@ -30,6 +30,6 @@ export default function TimerButton({ workouts, exercises, id }) {
   }
 }
 const TimerWrapper = styled.div`
-  height: 100px;
-  width: 100px;
+  height: 140px;
+  width: 140px;
 `
