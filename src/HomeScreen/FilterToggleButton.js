@@ -16,7 +16,7 @@ export default function FilterToggleButton({ isLiked, heartOnClick }) {
 const Label = styled.div`
   position: absolute;
   display: inline-block;
-  width: 10em;
+  width: 9em;
   right: 0px;
   top: 0px;
   font-size: 14px;

@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 
 :root {
 margin: 0px;
-font-family: 'Nunito', sans-serif;
+font-family: 'Nunito Sans', sans-serif;
 }
 
 body {

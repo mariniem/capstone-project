@@ -28,7 +28,7 @@ const WorkoutWrapper = styled.section`
 `
 
 const WorkoutImage = styled.img`
-  height: 180px;
+  height: 230px;
   width: 330px;
   opacity: 0.95;
   position: absolute;
@@ -61,7 +61,7 @@ const StartButton = styled.button`
   border-radius: 5px;
   position: relative;
   right: -250px;
-  bottom: -65px;
+  bottom: -95px;
   margin-left: 10px;
   background: #647d91;
   border: none;

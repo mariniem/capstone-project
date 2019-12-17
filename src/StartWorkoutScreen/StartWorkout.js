@@ -70,7 +70,6 @@ const TimerWrapper = styled.div`
 `
 
 const WorkoutImage = styled.img`
-  height: 300px;
+  height: 280px;
   width: 100%;
-  margin-bottom: 15px;
 `

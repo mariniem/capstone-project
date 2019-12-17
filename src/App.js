@@ -4,7 +4,7 @@ import Home from './HomeScreen/Home'
 import AppLayout from './AppLayout'
 import Create from './CreateScreen/Create'
 import StartWorkout from '../src/StartWorkoutScreen/StartWorkout'
-import PersonalWorkoutList from './FavoritesScreen/PersonalWorkoutList'
+import PersonalWorkoutList from '../src/OverviewWorkoutsScreen/PersonalWorkoutList'
 import {
   getExercises,
   /* postExercise, */
