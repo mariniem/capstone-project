@@ -5,6 +5,8 @@ import HeadlineTwo from '../GlobalComponents/HeadlineTwo'
 import TimerButton from './TimerButton.js'
 import ArrowLeft from '../Icons/ArrowLeftStart.svg'
 import ArrowRight from '../Icons/ArrowRightStart.svg'
+import BackIcon from '../Icons/BackIcon.svg'
+import { Link } from 'react-router-dom'
 
 export default function StartWorkout({
   workouts,
@@ -24,6 +26,9 @@ export default function StartWorkout({
 
   return (
     <>
+      <Link to={'/overview/'}>
+        <BackToOverviewIcon src={BackIcon}></BackToOverviewIcon>
+      </Link>
       <HeadlineOne style={{ marginLeft: '10px' }}>
         {workout.workoutName}
       </HeadlineOne>
@@ -61,6 +66,11 @@ export default function StartWorkout({
   }
 }
 
+const BackToOverviewIcon = styled.img`
+  position: relative;
+  margin: 10px 0 0 10px;
+`
+
 const TimerWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -70,6 +80,6 @@ const TimerWrapper = styled.div`
 `
 
 const WorkoutImage = styled.img`
-  height: 280px;
+  height: 270px;
   width: 100%;
 `
