@@ -1,20 +1,50 @@
 import styled from 'styled-components/macro'
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import HeadlineOne from '../GlobalComponents/HeadlineOne'
 import HeadlineTwo from '../GlobalComponents/HeadlineTwo'
 import TimerWrapper from './TimerWrapper'
 import BackIcon from '../Icons/BackIcon.svg'
 import { Link } from 'react-router-dom'
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 export default function StartWorkout({ workouts, exercises, id }) {
-  const [exerciseIndex, setExerciseIndex] = useState(0)
+  let initialExerciseIndex = 0
 
+  if (id === undefined) {
+    id = localStorage.getItem('currentWorkoutId')
+    initialExerciseIndex = parseInt(
+      localStorage.getItem('currentExerciseIndex')
+    )
+  }
+
+  const [exerciseIndex, setExerciseIndex] = useState(initialExerciseIndex)
+  const history = useHistory()
+
+  if (id === null) {
+    confirmAlert({
+      title: 'Du hast noch kein Workout begonnen',
+      message: 'Bitte wähle ein Workout aus der deiner Übersicht.',
+      buttons: [
+        {
+          label: 'Zur Übersichtsseite',
+          onClick: () => history.push('/overview/'),
+        },
+      ],
+    })
+
+    return <p></p>
+  }
   // nochmal prüfen, damit er keinen Fehler wirft wenn array und exercises leer sind
   if (workouts.length === 0 || exercises.length === 0) return <p></p>
 
   const workout = workouts.filter(item => item._id === id)[0]
   const exerciseId = workout.exercises[exerciseIndex]
   const exercise = exercises.filter(item => item._id === exerciseId)[0]
+
+  localStorage.setItem('currentWorkoutId', id)
+  localStorage.setItem('currentExerciseIndex', exerciseIndex)
 
   return (
     <>
@@ -36,7 +66,15 @@ export default function StartWorkout({ workouts, exercises, id }) {
   function handleNextClick() {
     if (exerciseIndex < workout.exercises.length - 1) {
       setExerciseIndex(exerciseIndex + 1)
-    }
+    } else
+      confirmAlert({
+        message: 'Du hast dein Workout beendet',
+        buttons: [
+          {
+            label: 'Ok',
+          },
+        ],
+      })
   }
 
   function handleBackClick() {

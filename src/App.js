@@ -59,7 +59,7 @@ export default function App(isSearchImageClicked) {
             ></PersonalWorkoutList>
           </Route>
           <Route
-            path="/workout/:id"
+            path="/workout/:id?"
             render={props => (
               <StartWorkout
                 workouts={workouts}

@@ -4,34 +4,77 @@ import Home from '../src/Icons/Footer/Home.svg'
 import Plus from '../src/Icons/Footer/Plus.svg'
 import Heart from '../src/Icons/Footer/Heart.svg'
 import TimerWorkout from '../src/Icons/Footer/TimerWorkout.svg'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function Footer() {
   return (
     <>
       <NavButton>
-        <Link to="/">
+        <NavLink
+          to="/"
+          exact
+          style={{ textDecoration: 'none' }}
+          activeStyle={{
+            display: 'inline-block',
+            height: '55px',
+            width: '93.75px',
+            backgroundColor: '#4C687E',
+            paddingTop: '5px',
+          }}
+        >
           <img alt="home" src={Home}></img>
-        </Link>
-        <Title>Home</Title>
+          <Title>Home</Title>
+        </NavLink>
       </NavButton>
       <NavButton>
-        <Link to="/create">
+        <NavLink
+          to="/create"
+          exact
+          style={{ textDecoration: 'none' }}
+          activeStyle={{
+            display: 'inline-block',
+            height: '55px',
+            width: '93.75px',
+            backgroundColor: '#4C687E',
+            paddingTop: '5px',
+          }}
+        >
           <img alt="create" src={Plus}></img>
-        </Link>
-        <Title>Anlegen</Title>
+          <Title>Anlegen</Title>
+        </NavLink>
       </NavButton>
       <NavButton>
-        <Link to="/overview">
+        <NavLink
+          to="/overview"
+          exact
+          style={{ textDecoration: 'none' }}
+          activeStyle={{
+            display: 'inline-block',
+            height: '55px',
+            width: '93.75px',
+            backgroundColor: '#4C687E',
+            paddingTop: '5px',
+          }}
+        >
           <img alt="overview " src={Heart}></img>
-        </Link>
-        <Title>Übersicht</Title>
+          <Title>Übersicht</Title>
+        </NavLink>
       </NavButton>
       <NavButton>
-        <Link to="/workout/gggg">
+        <NavLink
+          to="/workout/"
+          style={{ textDecoration: 'none' }}
+          activeStyle={{
+            display: 'inline-block',
+            height: '55px',
+            width: '93.75px',
+            backgroundColor: '#4C687E',
+            paddingTop: '5px',
+          }}
+        >
           <img alt="workout" src={TimerWorkout}></img>
-        </Link>
-        <Title>Starten</Title>
+          <Title>Starten</Title>
+        </NavLink>
       </NavButton>
     </>
   )
@@ -44,5 +87,5 @@ const NavButton = styled.button`
 const Title = styled.div`
   color: white;
   font-size: 10px;
-  margin-top: 4px;
+  margin-top: 5px;
 `

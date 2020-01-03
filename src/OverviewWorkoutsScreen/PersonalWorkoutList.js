@@ -26,6 +26,7 @@ export default function PersonalWorkoutList({
           if (filteredExercises.length > 0) image = filteredExercises[0].image
           return (
             <Workout
+              key={workout._id}
               image={image}
               workoutId={workout._id}
               workoutName={workout.workoutName}
