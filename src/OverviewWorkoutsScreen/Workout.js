@@ -65,6 +65,6 @@ const StartButton = styled.button`
   margin-left: 10px;
   background: #647d91;
   border: none;
-  padding: 4px;
+  padding: 6px;
   color: white;
 `
