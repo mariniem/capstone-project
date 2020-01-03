@@ -9,83 +9,68 @@ import { NavLink } from 'react-router-dom'
 export default function Footer() {
   return (
     <>
-      <NavButton>
-        <NavLink
-          to="/"
-          exact
-          style={{ textDecoration: 'none' }}
-          activeStyle={{
-            display: 'inline-block',
-            height: '55px',
-            width: '93.75px',
-            backgroundColor: '#4C687E',
-            paddingTop: '5px',
-          }}
-        >
+      <NavLink to="/" exact style={linkStyle} activeStyle={linkActiveStyle}>
+        <div>
           <img alt="home" src={Home}></img>
           <Title>Home</Title>
-        </NavLink>
-      </NavButton>
-      <NavButton>
-        <NavLink
-          to="/create"
-          exact
-          style={{ textDecoration: 'none' }}
-          activeStyle={{
-            display: 'inline-block',
-            height: '55px',
-            width: '93.75px',
-            backgroundColor: '#4C687E',
-            paddingTop: '5px',
-          }}
-        >
+        </div>
+      </NavLink>
+      <NavLink
+        to="/create"
+        exact
+        style={linkStyle}
+        activeStyle={linkActiveStyle}
+      >
+        <div>
           <img alt="create" src={Plus}></img>
           <Title>Anlegen</Title>
-        </NavLink>
-      </NavButton>
-      <NavButton>
-        <NavLink
-          to="/overview"
-          exact
-          style={{ textDecoration: 'none' }}
-          activeStyle={{
-            display: 'inline-block',
-            height: '55px',
-            width: '93.75px',
-            backgroundColor: '#4C687E',
-            paddingTop: '5px',
-          }}
-        >
+        </div>
+      </NavLink>
+      <NavLink
+        to="/overview"
+        exact
+        style={linkStyle}
+        activeStyle={linkActiveStyle}
+      >
+        <div>
           <img alt="overview " src={Heart}></img>
           <Title>Übersicht</Title>
-        </NavLink>
-      </NavButton>
-      <NavButton>
-        <NavLink
-          to="/workout/"
-          style={{ textDecoration: 'none' }}
-          activeStyle={{
-            display: 'inline-block',
-            height: '55px',
-            width: '93.75px',
-            backgroundColor: '#4C687E',
-            paddingTop: '5px',
-          }}
-        >
+        </div>
+      </NavLink>
+      <NavLink to="/workout/" style={linkStyle} activeStyle={linkActiveStyle}>
+        <div>
           <img alt="workout" src={TimerWorkout}></img>
           <Title>Starten</Title>
-        </NavLink>
-      </NavButton>
+        </div>
+      </NavLink>
     </>
   )
 }
 
-const NavButton = styled.button`
-  border: none;
-  background: none;
-`
+const linkStyle = {
+  display: 'grid',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'center',
+  height: '100%',
+  width: '100%',
+  paddingTop: '5px',
+  textDecoration: 'none',
+}
+
+const linkActiveStyle = {
+  display: 'grid',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'center',
+  height: '100%',
+  width: '100%',
+  backgroundColor: '#4C687E',
+  paddingTop: '5px',
+  textDecoration: 'none',
+}
+
 const Title = styled.div`
   color: white;
   font-size: 10px;
-  margin-top: 5px;
 `
