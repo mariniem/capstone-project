@@ -10,6 +10,7 @@ export default function TimerWrapper({ handleBackClick, handleNextClick }) {
 
   setTimeout(() => {
     if (timerValue > 0 && isRunning === true) setTimerValue(timerValue - 1)
+    else if (timerValue === 0) onNextClick()
   }, 1000)
 
   return (
@@ -26,7 +27,7 @@ export default function TimerWrapper({ handleBackClick, handleNextClick }) {
     setIsRunning(false)
     setTimerValue(30)
 
-    handleNextClick()
+    handleBackClick()
   }
 
   function onNextClick() {
