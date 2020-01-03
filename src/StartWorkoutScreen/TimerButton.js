@@ -1,18 +1,11 @@
 import styled from 'styled-components/macro'
-import React, { useState } from 'react'
+import React from 'react'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
-export default function TimerButton({ workouts, exercises, id }) {
-  const [timerValue, setTimerValue] = useState(30)
-  const [isRunning, setIsRunning] = useState(false)
-
-  setTimeout(() => {
-    if (timerValue > 0 && isRunning === true) setTimerValue(timerValue - 1)
-  }, 1000)
-
+export default function TimerButton({ handleOnClick, timerValue }) {
   return (
-    <TimerWrapper onClick={handleOnClick}>
+    <TimerButtonWrapper onClick={handleOnClick}>
       <CircularProgressbar
         maxValue="60"
         value={timerValue}
@@ -22,14 +15,10 @@ export default function TimerButton({ workouts, exercises, id }) {
           textColor: '#647D91',
         })}
       />
-    </TimerWrapper>
+    </TimerButtonWrapper>
   )
-
-  function handleOnClick() {
-    setIsRunning(!isRunning)
-  }
 }
-const TimerWrapper = styled.div`
+const TimerButtonWrapper = styled.div`
   height: 140px;
   width: 140px;
 `

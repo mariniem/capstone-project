@@ -2,19 +2,11 @@ import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 import HeadlineOne from '../GlobalComponents/HeadlineOne'
 import HeadlineTwo from '../GlobalComponents/HeadlineTwo'
-import TimerButton from './TimerButton.js'
-import ArrowLeft from '../Icons/ArrowLeftStart.svg'
-import ArrowRight from '../Icons/ArrowRightStart.svg'
+import TimerWrapper from './TimerWrapper'
 import BackIcon from '../Icons/BackIcon.svg'
 import { Link } from 'react-router-dom'
 
-export default function StartWorkout({
-  workouts,
-  exercises,
-  id,
-  setTimerValue,
-  timerValue,
-}) {
+export default function StartWorkout({ workouts, exercises, id }) {
   const [exerciseIndex, setExerciseIndex] = useState(0)
 
   // nochmal prüfen, damit er keinen Fehler wirft wenn array und exercises leer sind
@@ -34,30 +26,16 @@ export default function StartWorkout({
       </HeadlineOne>
       <WorkoutImage src={exercise.image}></WorkoutImage>
       <HeadlineTwo style={{ marginLeft: '10px' }}>{exercise.title}</HeadlineTwo>
-      <TimerWrapper>
-        <img
-          alt="exercise before"
-          src={ArrowLeft}
-          onClick={handleBackClick}
-        ></img>
-        <TimerButton />
-        <img
-          alt="next exercise"
-          src={ArrowRight}
-          onClick={handleNextClick}
-        ></img>
-      </TimerWrapper>
+      <TimerWrapper
+        handleNextClick={handleNextClick}
+        handleBackClick={handleBackClick}
+      />
     </>
   )
 
-  function resetTimer(timerValue) {
-    setTimerValue(timerValue)
-  }
-
   function handleNextClick() {
     if (exerciseIndex < workout.exercises.length - 1) {
-      setExerciseIndex(exerciseIndex + 1) && resetTimer()
-      /* && setTimerValue(timerValue) */
+      setExerciseIndex(exerciseIndex + 1)
     }
   }
 
@@ -69,14 +47,6 @@ export default function StartWorkout({
 const BackToOverviewIcon = styled.img`
   position: relative;
   margin: 10px 0 0 10px;
-`
-
-const TimerWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 20px;
-  justify-items: center;
-  align-items: center;
 `
 
 const WorkoutImage = styled.img`
