@@ -15,6 +15,7 @@ import {
 } from './services'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
+import Login from './Login'
 
 export default function App(isSearchImageClicked) {
   const [exercises, setExercises] = useState([])
@@ -28,15 +29,18 @@ export default function App(isSearchImageClicked) {
 
   return (
     <Router>
-      <AppLayout
-        handleInput={handleInput}
-        searchInput={searchInput}
-        active={isSearchImageClicked}
-      >
-        <Switch>
+      <Switch>
+        <Route exact path="/">
+          <Login></Login>
+        </Route>
+        <AppLayout
+          handleInput={handleInput}
+          searchInput={searchInput}
+          active={isSearchImageClicked}
+        >
           <Route
             exact
-            path="/"
+            path="/home"
             render={() => (
               <Home
                 exercises={exercises}
@@ -71,8 +75,8 @@ export default function App(isSearchImageClicked) {
               ></StartWorkout>
             )}
           />
-        </Switch>
-      </AppLayout>
+        </AppLayout>
+      </Switch>
     </Router>
   )
 
