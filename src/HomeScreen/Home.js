@@ -15,9 +15,27 @@ export default function Home({
 }) {
   const [isOnlyLikedShown, setIsOnlyLikedShown] = useState(false)
   const [isFilterMenuShown, setIsFilterMenuShown] = useState(false)
+  const [checkedCategories, setCheckedCategories] = useState([])
+  /*  const [categories, setCategories] = useState([
+    { category: 'Bauch', checked: false },
+    { category: 'Beine', checked: false },
+    { category: 'Rücken', checked: false },
+    { category: 'Po', checked: false },
+    { category: 'Schulter', checked: false },
+    { category: 'Arme', checked: false },
+  ]) */
+
+  let filteredExercises = exercises
+
+  if (checkedCategories.length > 0)
+    filteredExercises = filteredExercises.filter(exercise =>
+      checkedCategories.includes(exercise.category)
+    )
 
   if (isOnlyLikedShown)
-    exercises = exercises.filter(exercise => exercise.isLiked === true)
+    filteredExercises = filteredExercises.filter(
+      exercise => exercise.isLiked === true
+    )
 
   return (
     <div>
@@ -26,19 +44,21 @@ export default function Home({
           onClick={() => setIsFilterMenuShown(!isFilterMenuShown)}
           src={filterIcon}
         ></FilterMenuIcon>
-
         <FilterToggleButton
           heartOnClick={() => setIsOnlyLikedShown(!isOnlyLikedShown)}
           isLiked={isOnlyLikedShown}
         ></FilterToggleButton>
+        <FilterMenu
+          exercises={exercises}
+          isFilterMenuShown={isFilterMenuShown}
+          onCloseClick={() => setIsFilterMenuShown(false)}
+          checkedCategories={checkedCategories}
+          onChange={handleOnCategoryFilterChange}
+        ></FilterMenu>
       </FilterWrapper>
-      <FilterMenu
-        exercises={exercises}
-        isFilterMenuShown={isFilterMenuShown}
-      ></FilterMenu>
 
       <ExerciseGrid>
-        {exercises
+        {filteredExercises
           .filter(item => {
             const title = item.title.toLowerCase()
             const query = searchInput.toLowerCase()
@@ -57,6 +77,22 @@ export default function Home({
       </ExerciseGrid>
     </div>
   )
+
+  function handleOnCategoryFilterChange(e) {
+    const id = e.target.name
+    const isChecked = e.target.checked
+
+    if (isChecked === true) {
+      setCheckedCategories([...checkedCategories, id])
+    } else {
+      const index = checkedCategories.findIndex(category => category === id)
+
+      setCheckedCategories([
+        ...checkedCategories.slice(0, index),
+        ...checkedCategories.slice(index + 1),
+      ])
+    }
+  }
 }
 
 const ExerciseGrid = styled.div`
@@ -68,8 +104,8 @@ const ExerciseGrid = styled.div`
 `
 
 const FilterMenuIcon = styled.img`
-  height: 24px;
-  width: 24px;
+  height: 22px;
+  width: 22px;
 `
 const FilterWrapper = styled.div`
   display: grid;
