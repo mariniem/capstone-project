@@ -21,7 +21,7 @@ export default function LikedExerciseItem({ id, title, image, onChange }) {
 const LikedExerciseWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  border: solid 1.5px #647d91;
+  border: solid 1px #647d91;
   border-radius: 1px;
   height: 62px;
   width: 340px;

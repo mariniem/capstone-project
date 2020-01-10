@@ -45,26 +45,28 @@ export default function FilterMenu({
 }
 
 const FilterMenuLayout = styled.div`
-  height: 400px;
-  width: 250px;
-  background: #7589a2;
-  opacity: 0.9;
+  height: 450px;
+  width: 240px;
+  background: #86919f;
+  opacity: 0.98;
   z-index: +1;
   position: absolute;
-  top: 22px;
+  top: 21px;
   left: 0px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 `
 const CategoryTitle = styled.div`
   color: white;
   margin-left: 15px;
-  margin-top: 10px;
+  margin-top: 30px;
 `
 const Checkbox = styled.input`
   border: 1px solid #647d91;
   height: 18px;
   width: 18px;
   margin-left: 15px;
-  margin-top: 10px;
+  margin-top: 31px;
 `
 const CheckboxWrapper = styled.div`
   display: grid;
@@ -73,5 +75,5 @@ const CheckboxWrapper = styled.div`
 const DeleteIcon = styled.img`
   position: absolute;
   right: 10px;
-  top: 7px;
+  top: 9px;
 `

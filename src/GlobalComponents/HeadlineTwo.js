@@ -5,4 +5,5 @@ export default styled.h2`
   font-weight: regular;
   color: #647d91;
   margin-top: 10px;
+  margin-bottom: 7px;
 `

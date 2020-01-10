@@ -7,23 +7,10 @@ import FilterMenu from './FilterMenu'
 
 //import exerciseData from './exercises.json'
 
-export default function Home({
-  exercises,
-  heartOnClick,
-  searchInput,
-  onClick,
-}) {
+export default function Home({ exercises, heartOnClick, searchInput }) {
   const [isOnlyLikedShown, setIsOnlyLikedShown] = useState(false)
   const [isFilterMenuShown, setIsFilterMenuShown] = useState(false)
   const [checkedCategories, setCheckedCategories] = useState([])
-  /*  const [categories, setCategories] = useState([
-    { category: 'Bauch', checked: false },
-    { category: 'Beine', checked: false },
-    { category: 'Rücken', checked: false },
-    { category: 'Po', checked: false },
-    { category: 'Schulter', checked: false },
-    { category: 'Arme', checked: false },
-  ]) */
 
   let filteredExercises = exercises
 

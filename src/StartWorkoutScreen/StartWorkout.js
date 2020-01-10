@@ -54,7 +54,10 @@ export default function StartWorkout({ workouts, exercises, id }) {
       <HeadlineOne style={{ marginLeft: '10px' }}>
         {workout.workoutName}
       </HeadlineOne>
-      <WorkoutImage src={exercise.image}></WorkoutImage>
+      <WorkoutImage
+        style={{ height: '250' }}
+        src={exercise.image}
+      ></WorkoutImage>
       <HeadlineTwo style={{ marginLeft: '10px' }}>{exercise.title}</HeadlineTwo>
       <TimerWrapper
         handleNextClick={handleNextClick}
