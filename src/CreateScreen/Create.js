@@ -12,64 +12,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css'
 export default function Create({ exercises, onSubmit }) {
   const [checkedExercises, setCheckedExercises] = useState([])
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    const form = event.target
-    const formData = new FormData(form)
-    const data = Object.fromEntries(formData)
-    data['exercises'] = [...checkedExercises]
-
-    if (data['category'] === undefined) {
-      confirmAlert({
-        message: 'Bitte eine Kategorie auswählen',
-        buttons: [
-          {
-            label: 'Ok',
-          },
-        ],
-      })
-    } else if (checkedExercises.length === 0) {
-      confirmAlert({
-        message: 'Bitte mindestens eine Übung auswählen',
-        buttons: [
-          {
-            label: 'Ok',
-          },
-        ],
-      })
-    } else {
-      confirmAlert({
-        message: 'Dein Workoutout wurde erfolgreich gespeichert',
-        buttons: [
-          {
-            label: 'Ok',
-          },
-        ],
-      })
-    }
-
-    onSubmit(data)
-    form.reset()
-    setCheckedExercises([])
-    form.title.focus()
-  }
-
-  function handleOnExerciseCheckChange(e) {
-    const id = e.target.name
-    const isChecked = e.target.checked
-
-    if (isChecked === true) {
-      setCheckedExercises([...checkedExercises, id])
-    } else {
-      const index = checkedExercises.findIndex(exercise => exercise === id)
-
-      setCheckedExercises([
-        ...checkedExercises.slice(0, index),
-        ...checkedExercises.slice(index + 1),
-      ])
-    }
-  }
-
   return (
     <div>
       <CreateGrid onSubmit={handleSubmit}>
@@ -143,6 +85,64 @@ export default function Create({ exercises, onSubmit }) {
       </CreateGrid>
     </div>
   )
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = event.target
+    const formData = new FormData(form)
+    const data = Object.fromEntries(formData)
+    data['exercises'] = [...checkedExercises]
+
+    if (data['category'] === undefined) {
+      confirmAlert({
+        message: 'Bitte eine Kategorie auswählen',
+        buttons: [
+          {
+            label: 'Ok',
+          },
+        ],
+      })
+    } else if (checkedExercises.length === 0) {
+      confirmAlert({
+        message: 'Bitte mindestens eine Übung auswählen',
+        buttons: [
+          {
+            label: 'Ok',
+          },
+        ],
+      })
+    } else {
+      confirmAlert({
+        message: 'Dein Workoutout wurde erfolgreich gespeichert',
+        buttons: [
+          {
+            label: 'Ok',
+          },
+        ],
+      })
+    }
+
+    onSubmit(data)
+    form.reset()
+    setCheckedExercises([])
+    form.title.focus()
+  }
+
+  function handleOnExerciseCheckChange(e) {
+    const id = e.target.name
+    const isChecked = e.target.checked
+
+    if (isChecked === true) {
+      setCheckedExercises([...checkedExercises, id])
+    } else {
+      const index = checkedExercises.findIndex(exercise => exercise === id)
+
+      setCheckedExercises([
+        ...checkedExercises.slice(0, index),
+        ...checkedExercises.slice(index + 1),
+      ])
+    }
+  }
 }
 
 const Wrapper = styled.div`

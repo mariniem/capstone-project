@@ -13,7 +13,7 @@ export default function Header({
   return (
     <>
       <HeaderLogo src={headerLogo}></HeaderLogo>
-      <Route exact path="/">
+      <Route exact path="/home">
         <SearchBar
           searchInput={searchInput}
           handleInput={handleInput}

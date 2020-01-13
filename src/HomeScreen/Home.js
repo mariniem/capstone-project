@@ -2,23 +2,50 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import Exercise from './Exercise'
 import FilterToggleButton from './FilterToggleButton'
+import filterIcon from '../Icons/FilterIcon.svg'
+import FilterMenu from './FilterMenu'
 
 //import exerciseData from './exercises.json'
 
 export default function Home({ exercises, heartOnClick, searchInput }) {
   const [isOnlyLikedShown, setIsOnlyLikedShown] = useState(false)
+  const [isFilterMenuShown, setIsFilterMenuShown] = useState(false)
+  const [checkedCategories, setCheckedCategories] = useState([])
+
+  let filteredExercises = exercises
+
+  if (checkedCategories.length > 0)
+    filteredExercises = filteredExercises.filter(exercise =>
+      checkedCategories.includes(exercise.category)
+    )
 
   if (isOnlyLikedShown)
-    exercises = exercises.filter(exercise => exercise.isLiked === true)
+    filteredExercises = filteredExercises.filter(
+      exercise => exercise.isLiked === true
+    )
 
   return (
     <div>
-      <FilterToggleButton
-        heartOnClick={() => setIsOnlyLikedShown(!isOnlyLikedShown)}
-        isLiked={isOnlyLikedShown}
-      ></FilterToggleButton>
+      <FilterWrapper>
+        <FilterMenuIcon
+          onClick={() => setIsFilterMenuShown(!isFilterMenuShown)}
+          src={filterIcon}
+        ></FilterMenuIcon>
+        <FilterToggleButton
+          heartOnClick={() => setIsOnlyLikedShown(!isOnlyLikedShown)}
+          isLiked={isOnlyLikedShown}
+        ></FilterToggleButton>
+        <FilterMenu
+          exercises={exercises}
+          isFilterMenuShown={isFilterMenuShown}
+          onCloseClick={() => setIsFilterMenuShown(false)}
+          checkedCategories={checkedCategories}
+          onChange={handleOnCategoryFilterChange}
+        ></FilterMenu>
+      </FilterWrapper>
+
       <ExerciseGrid>
-        {exercises
+        {filteredExercises
           .filter(item => {
             const title = item.title.toLowerCase()
             const query = searchInput.toLowerCase()
@@ -37,12 +64,40 @@ export default function Home({ exercises, heartOnClick, searchInput }) {
       </ExerciseGrid>
     </div>
   )
+
+  function handleOnCategoryFilterChange(e) {
+    const id = e.target.name
+    const isChecked = e.target.checked
+
+    if (isChecked === true) {
+      setCheckedCategories([...checkedCategories, id])
+    } else {
+      const index = checkedCategories.findIndex(category => category === id)
+
+      setCheckedCategories([
+        ...checkedCategories.slice(0, index),
+        ...checkedCategories.slice(index + 1),
+      ])
+    }
+  }
 }
 
 const ExerciseGrid = styled.div`
-  display: Grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   row-gap: 25px;
   margin-bottom: 10px;
+`
+
+const FilterMenuIcon = styled.img`
+  height: 22px;
+  width: 22px;
+`
+const FilterWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 20px;
+  margin-top: 3px;
+  align-items: center;
 `

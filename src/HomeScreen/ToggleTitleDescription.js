@@ -30,7 +30,7 @@ const DescriptionWrapper = styled.div`
   position: absolute;
   height: auto;
   width: 150px;
-  bottom: -100px;
+  bottom: -140px;
   z-index: 100;
   position: relative;
   border-radius: 3px;

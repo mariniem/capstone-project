@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './HomeScreen/Home'
 import AppLayout from './AppLayout'
 import Create from './CreateScreen/Create'
-import PersonalWorkoutList from './FavoritesScreen/PersonalWorkoutList'
+import StartWorkout from '../src/StartWorkoutScreen/StartWorkout'
+import PersonalWorkoutList from '../src/OverviewWorkoutsScreen/PersonalWorkoutList'
 import {
   getExercises,
+  /* postExercise, */
   patchExercise,
   postPersonalWorkout,
   getWorkouts,
@@ -13,6 +15,7 @@ import {
 } from './services'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
+import Login from './Login'
 
 export default function App(isSearchImageClicked) {
   const [exercises, setExercises] = useState([])
@@ -23,6 +26,59 @@ export default function App(isSearchImageClicked) {
     getExercises().then(setExercises)
     getWorkouts().then(setWorkouts)
   }, [])
+
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Login></Login>
+        </Route>
+        <AppLayout
+          handleInput={handleInput}
+          searchInput={searchInput}
+          active={isSearchImageClicked}
+        >
+          <Route
+            exact
+            path="/home"
+            render={() => (
+              <Home
+                exercises={exercises}
+                searchInput={searchInput}
+                heartOnClick={heartOnClick}
+              />
+            )}
+          ></Route>
+          <Route path="/create">
+            <Create
+              onSubmit={createPersonalWorkout}
+              exercises={exercises}
+            ></Create>
+          </Route>
+          <Route path="/overview">
+            <PersonalWorkoutList
+              workouts={workouts}
+              exercises={exercises}
+              handleDeleteClick={handleDeleteClick}
+            ></PersonalWorkoutList>
+          </Route>
+          <Route
+            path="/workout/:id?"
+            render={props => (
+              <StartWorkout
+                workouts={workouts}
+                exercises={exercises}
+                id={props.match.params.id}
+                /*   workouts={workouts}
+              exercises={exercises}
+              handleClick={handleClick} */
+              ></StartWorkout>
+            )}
+          />
+        </AppLayout>
+      </Switch>
+    </Router>
+  )
 
   function heartOnClick(id) {
     const exercise = exercises[id]
@@ -36,6 +92,13 @@ export default function App(isSearchImageClicked) {
       }
     )
   }
+
+  /* function createExercise(exerciseData) {
+    postExercise(exerciseData).then(exercise => {
+      setExercises([...exercises, exercise])
+    })
+  } */
+
   function createPersonalWorkout(workoutData) {
     postPersonalWorkout(workoutData).then(workout => {
       setWorkouts([...workouts, workout])
@@ -49,7 +112,7 @@ export default function App(isSearchImageClicked) {
     })
   }
 
-  function handleClick(id) {
+  function handleDeleteClick(id) {
     confirmAlert({
       title: 'Löschen bestätigen',
       message: 'Möchten Sie dieses Workout wirklich löschen?',
@@ -65,43 +128,6 @@ export default function App(isSearchImageClicked) {
     })
   }
 
-  return (
-    <Router>
-      <AppLayout
-        key="appLayout1"
-        handleInput={handleInput}
-        searchInput={searchInput}
-        active={isSearchImageClicked}
-      >
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <Home
-                exercises={exercises}
-                searchInput={searchInput}
-                heartOnClick={heartOnClick}
-              />
-            )}
-          ></Route>
-          <Route path="/create">
-            <Create
-              onSubmit={createPersonalWorkout}
-              exercises={exercises}
-            ></Create>
-          </Route>
-          <Route path="/favorites">
-            <PersonalWorkoutList
-              workouts={workouts}
-              exercises={exercises}
-              handleClick={handleClick}
-            ></PersonalWorkoutList>
-          </Route>
-        </Switch>
-      </AppLayout>
-    </Router>
-  )
   function handleInput(newInput) {
     setInput(newInput)
   }
