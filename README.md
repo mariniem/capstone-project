@@ -4,15 +4,9 @@ Trayn is an App which helps you to create your individual workout from a selecti
 
 https://github.com/mariniem/trayn
 
-<img src="./Icons/Gif.gif" width="400px">
+<img src="./src/Icons/Gif.gif" width= "400">
 
 ### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-Kontaktdaten:
-
-Marilena Niemann
-0176 26263687
-mari_niemann@web.de
