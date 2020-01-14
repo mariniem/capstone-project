@@ -6,7 +6,11 @@ import traynLogo from './Icons/LoginTraynLogo.svg'
 import { useSpring, animated } from 'react-spring'
 
 export default function Login({ onLogged }) {
-  const props = useSpring({ opacity: 1, from: { opacity: 0 } })
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 2500 },
+  })
 
   return (
     <>

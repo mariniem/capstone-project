@@ -28,7 +28,7 @@ export default function App() {
   }, [])
 
   //if (isLogged === false) {
-  //return <Login onLogged={onLogged}></Login>
+  return <Login onLogged={onLogged}></Login>
   //‚}
 
   if (workouts.length === 0 || exercises.length === 0) return <p>Lade...</p>
