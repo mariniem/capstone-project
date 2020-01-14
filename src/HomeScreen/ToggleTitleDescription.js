@@ -1,7 +1,5 @@
 import styled from 'styled-components/macro'
 import React, { useState } from 'react'
-import DescriptionButton from './DescriptionButton'
-import ExerciseButton from './ExerciseButton'
 import ArrowDown from '../Icons/Arrow down.svg'
 
 export default function ToggleTitleDescription({ title, description }) {
@@ -25,6 +23,22 @@ export default function ToggleTitleDescription({ title, description }) {
     </>
   )
 }
+
+const ExerciseButton = styled.img`
+  margin-left: 5px;
+  position: absolute;
+  bottom: 5px;
+`
+
+const DescriptionButton = styled.button`
+  color: #f2f2f2;
+  position: absolute;
+  right: 5%;
+  top: 3%;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+`
 
 const DescriptionWrapper = styled.div`
   position: absolute;

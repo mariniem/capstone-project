@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 export default function Footer() {
   return (
     <>
-      <NavLink to="/home" exact style={linkStyle} activeStyle={linkActiveStyle}>
+      <NavLink to="/" exact style={linkStyle} activeStyle={linkActiveStyle}>
         <div>
           <img alt="home" src={Home}></img>
           <Title>Home</Title>

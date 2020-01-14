@@ -3,27 +3,23 @@ import React from 'react'
 import SearchIcon from '../Icons/Header/SearchIcon.svg'
 
 export default function SearchBar({
-  handleInput,
+  onSearchInputChange,
   searchInput,
-  active,
-  handleClick,
+  isActive,
+  onClick,
 }) {
   return (
     <SearchBarForm>
       <Label htmlFor="search"></Label>
-
       <SearchImage
         type="image"
         alt="Search Icon"
         src={SearchIcon}
-        onClick={handleClick}
-        isSearchImageClicked={active}
+        onClick={onClick}
       />
-
-      {active ? (
+      {isActive ? (
         <SearchInputField
-          onInput={event => handleInput(event.target.value)}
-          isSearchImageClicked={active}
+          onInput={event => onSearchInputChange(event.target.value)}
           type="text"
           name="search"
           id="search"

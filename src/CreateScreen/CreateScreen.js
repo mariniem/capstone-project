@@ -9,7 +9,7 @@ import InputField from '../GlobalComponents/InputField'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
-export default function Create({ exercises, onSubmit }) {
+export default function CreateScreen({ exercises, onSubmit }) {
   const [checkedExercises, setCheckedExercises] = useState([])
 
   return (
@@ -102,6 +102,7 @@ export default function Create({ exercises, onSubmit }) {
           },
         ],
       })
+      return
     } else if (checkedExercises.length === 0) {
       confirmAlert({
         message: 'Bitte mindestens eine Übung auswählen',
@@ -111,16 +112,17 @@ export default function Create({ exercises, onSubmit }) {
           },
         ],
       })
-    } else {
-      confirmAlert({
-        message: 'Dein Workoutout wurde erfolgreich gespeichert',
-        buttons: [
-          {
-            label: 'Ok',
-          },
-        ],
-      })
+      return
     }
+
+    confirmAlert({
+      message: 'Dein Workoutout wurde erfolgreich gespeichert',
+      buttons: [
+        {
+          label: 'Ok',
+        },
+      ],
+    })
 
     onSubmit(data)
     form.reset()
@@ -128,9 +130,9 @@ export default function Create({ exercises, onSubmit }) {
     form.title.focus()
   }
 
-  function handleOnExerciseCheckChange(e) {
-    const id = e.target.name
-    const isChecked = e.target.checked
+  function handleOnExerciseCheckChange(event) {
+    const id = event.target.name
+    const isChecked = event.target.checked
 
     if (isChecked === true) {
       setCheckedExercises([...checkedExercises, id])

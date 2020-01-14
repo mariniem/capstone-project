@@ -3,7 +3,7 @@ import React from 'react'
 import HeadlineOne from '../GlobalComponents/HeadlineOne'
 import Workout from './Workout'
 
-export default function PersonalWorkoutList({
+export default function WorkoutOverviewScreen({
   workouts,
   exercises,
   handleDeleteClick,

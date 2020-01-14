@@ -5,20 +5,20 @@ import SearchBar from '../src/HomeScreen/SearchBar'
 import { Route } from 'react-router-dom'
 
 export default function Header({
-  handleInput,
+  onSearchInputChange,
   searchInput,
-  active,
-  handleClick,
+  isSearchBarActive,
+  onSearchBarClick,
 }) {
   return (
     <>
       <HeaderLogo src={headerLogo}></HeaderLogo>
-      <Route exact path="/home">
+      <Route exact path="/">
         <SearchBar
           searchInput={searchInput}
-          handleInput={handleInput}
-          active={active}
-          handleClick={handleClick}
+          onSearchInputChange={onSearchInputChange}
+          isActive={isSearchBarActive}
+          onClick={onSearchBarClick}
         ></SearchBar>
       </Route>
     </>

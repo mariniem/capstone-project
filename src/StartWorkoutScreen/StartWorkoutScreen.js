@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
-export default function StartWorkout({ workouts, exercises, id }) {
+export default function StartWorkoutScreen({ workouts, exercises, id }) {
   let initialExerciseIndex = 0
 
   if (id === undefined) {
@@ -36,8 +36,6 @@ export default function StartWorkout({ workouts, exercises, id }) {
 
     return <p></p>
   }
-  // nochmal prüfen, damit er keinen Fehler wirft wenn array und exercises leer sind
-  if (workouts.length === 0 || exercises.length === 0) return <p></p>
 
   const workout = workouts.filter(item => item._id === id)[0]
   const exerciseId = workout.exercises[exerciseIndex]
