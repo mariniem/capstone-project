@@ -3,24 +3,28 @@ import styled from 'styled-components/macro'
 import Header from './Header'
 import Footer from './Footer'
 
-export default function AppLayout({ children, handleInput, searchInput }) {
-  const [isSearchImageClicked, setIsSearchImageClicked] = useState(false)
+export default function AppLayout({
+  children,
+  onSearchInputChange,
+  searchInput,
+}) {
+  const [isSearchBarActive, setIsSearchBarActive] = useState(false)
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <HeaderContainer active={isSearchImageClicked}>
+      <HeaderContainer isSearchBarActive={isSearchBarActive}>
         <Header
-          handleInput={handleInput}
+          onSearchInputChange={onSearchInputChange}
           searchInput={searchInput}
-          handleClick={() => setIsSearchImageClicked(!isSearchImageClicked)}
-          active={isSearchImageClicked}
+          onSearchBarClick={() => setIsSearchBarActive(!isSearchBarActive)}
+          isSearchBarActive={isSearchBarActive}
         />
       </HeaderContainer>
       <FooterContainer>
         <Footer />
       </FooterContainer>
 
-      <ContentContainer active={isSearchImageClicked}>
+      <ContentContainer isSearchBarActive={isSearchBarActive}>
         {children}
       </ContentContainer>
     </div>
@@ -29,7 +33,7 @@ export default function AppLayout({ children, handleInput, searchInput }) {
 
 const HeaderContainer = styled.div`
   border-bottom: 1.5px solid #647d91;
-  height: ${props => (props.active ? '70px' : '50px')};
+  height: ${props => (props.isSearchBarActive ? '70px' : '50px')};
   display: grid;
   justify-items: center;
   align-items: center;
@@ -58,7 +62,7 @@ const ContentContainer = styled.div`
   position: absolute;
   left: 0px;
   right: 0px;
-  top: ${props => (props.active ? '70px' : '50px')};
+  top: ${props => (props.isSearchBarActive ? '70px' : '50px')};
   overflow-y: scroll;
   bottom: 55px;
 `

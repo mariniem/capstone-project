@@ -4,7 +4,6 @@ const exerciseSchema = {
   title: String,
   description: String,
   image: String,
-  id: Number,
   isLiked: Boolean,
 }
 

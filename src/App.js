@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './HomeScreen/Home'
+import HomeScreen from './HomeScreen/HomeScreen'
 import AppLayout from './AppLayout'
-import Create from './CreateScreen/Create'
-import StartWorkout from '../src/StartWorkoutScreen/StartWorkout'
-import PersonalWorkoutList from '../src/OverviewWorkoutsScreen/PersonalWorkoutList'
+import CreateScreen from './CreateScreen/CreateScreen'
+import StartWorkoutScreen from './StartWorkoutScreen/StartWorkoutScreen'
+import WorkoutOverviewScreen from './WorkoutOverviewScreen/WorkoutOverviewScreen'
 import {
   getExercises,
-  /* postExercise, */
   patchExercise,
   postPersonalWorkout,
   getWorkouts,
@@ -17,32 +16,34 @@ import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 import Login from './Login'
 
-export default function App(isSearchImageClicked) {
+export default function App() {
   const [exercises, setExercises] = useState([])
   const [workouts, setWorkouts] = useState([])
   const [searchInput, setInput] = useState('')
+  const [isLogged, setIsLogged] = useState(false)
 
   useEffect(() => {
     getExercises().then(setExercises)
     getWorkouts().then(setWorkouts)
   }, [])
 
+  if (isLogged === false) {
+    return <Login onLogged={onLogged}></Login>
+  }
+  if (workouts.length === 0 || exercises.length === 0) return <p>Lade...</p>
+
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <Login></Login>
-        </Route>
         <AppLayout
-          handleInput={handleInput}
+          onSearchInputChange={handleSearchInputChange}
           searchInput={searchInput}
-          active={isSearchImageClicked}
         >
           <Route
             exact
-            path="/home"
+            path="/"
             render={() => (
-              <Home
+              <HomeScreen
                 exercises={exercises}
                 searchInput={searchInput}
                 heartOnClick={heartOnClick}
@@ -50,35 +51,36 @@ export default function App(isSearchImageClicked) {
             )}
           ></Route>
           <Route path="/create">
-            <Create
+            <CreateScreen
               onSubmit={createPersonalWorkout}
               exercises={exercises}
-            ></Create>
+            />
           </Route>
           <Route path="/overview">
-            <PersonalWorkoutList
+            <WorkoutOverviewScreen
               workouts={workouts}
               exercises={exercises}
               handleDeleteClick={handleDeleteClick}
-            ></PersonalWorkoutList>
+            />
           </Route>
           <Route
             path="/workout/:id?"
             render={props => (
-              <StartWorkout
+              <StartWorkoutScreen
                 workouts={workouts}
                 exercises={exercises}
                 id={props.match.params.id}
-                /*   workouts={workouts}
-              exercises={exercises}
-              handleClick={handleClick} */
-              ></StartWorkout>
+              />
             )}
           />
         </AppLayout>
       </Switch>
     </Router>
   )
+
+  function onLogged() {
+    setIsLogged(!isLogged)
+  }
 
   function heartOnClick(id) {
     const exercise = exercises[id]
@@ -92,12 +94,6 @@ export default function App(isSearchImageClicked) {
       }
     )
   }
-
-  /* function createExercise(exerciseData) {
-    postExercise(exerciseData).then(exercise => {
-      setExercises([...exercises, exercise])
-    })
-  } */
 
   function createPersonalWorkout(workoutData) {
     postPersonalWorkout(workoutData).then(workout => {
@@ -128,7 +124,7 @@ export default function App(isSearchImageClicked) {
     })
   }
 
-  function handleInput(newInput) {
+  function handleSearchInputChange(newInput) {
     setInput(newInput)
   }
 }

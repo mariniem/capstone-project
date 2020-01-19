@@ -5,9 +5,7 @@ import FilterToggleButton from './FilterToggleButton'
 import filterIcon from '../Icons/FilterIcon.svg'
 import FilterMenu from './FilterMenu'
 
-//import exerciseData from './exercises.json'
-
-export default function Home({ exercises, heartOnClick, searchInput }) {
+export default function HomeScreen({ exercises, heartOnClick, searchInput }) {
   const [isOnlyLikedShown, setIsOnlyLikedShown] = useState(false)
   const [isFilterMenuShown, setIsFilterMenuShown] = useState(false)
   const [checkedCategories, setCheckedCategories] = useState([])
@@ -23,6 +21,12 @@ export default function Home({ exercises, heartOnClick, searchInput }) {
     filteredExercises = filteredExercises.filter(
       exercise => exercise.isLiked === true
     )
+
+  filteredExercises = filteredExercises.filter(item => {
+    const title = item.title.toLowerCase()
+    const query = searchInput.toLowerCase()
+    return query === '' || title.includes(query)
+  })
 
   return (
     <div>
@@ -45,29 +49,23 @@ export default function Home({ exercises, heartOnClick, searchInput }) {
       </FilterWrapper>
 
       <ExerciseGrid>
-        {filteredExercises
-          .filter(item => {
-            const title = item.title.toLowerCase()
-            const query = searchInput.toLowerCase()
-            return query === '' || title.includes(query)
-          })
-          .map((exercise, id) => (
-            <Exercise
-              title={exercise.title}
-              description={exercise.description}
-              image={exercise.image}
-              key={exercise.id}
-              heartOnClick={() => heartOnClick(id)}
-              isLiked={exercise.isLiked}
-            />
-          ))}
+        {filteredExercises.map((exercise, id) => (
+          <Exercise
+            title={exercise.title}
+            description={exercise.description}
+            image={exercise.image}
+            key={exercise.id}
+            heartOnClick={() => heartOnClick(id)}
+            isLiked={exercise.isLiked}
+          />
+        ))}
       </ExerciseGrid>
     </div>
   )
 
-  function handleOnCategoryFilterChange(e) {
-    const id = e.target.name
-    const isChecked = e.target.checked
+  function handleOnCategoryFilterChange(event) {
+    const id = event.target.name
+    const isChecked = event.target.checked
 
     if (isChecked === true) {
       setCheckedCategories([...checkedCategories, id])

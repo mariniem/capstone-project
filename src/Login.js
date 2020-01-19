@@ -1,15 +1,16 @@
 import styled from 'styled-components/macro'
 import React from 'react'
 import Button from './GlobalComponents/SubmitButton'
-import { useHistory } from 'react-router-dom'
 import loginPicture from './Icons/LoginPicture.jpg'
 import traynLogo from './Icons/LoginTraynLogo.svg'
 import { useSpring, animated } from 'react-spring'
 
-export default function Login() {
-  const history = useHistory()
-
-  const props = useSpring({ opacity: 1, from: { opacity: 0 } })
+export default function Login({ onLogged }) {
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 2500 },
+  })
 
   return (
     <>
@@ -48,8 +49,7 @@ export default function Login() {
 
   function handleOnSubmit(event) {
     event.preventDefault()
-
-    history.push('/home')
+    onLogged()
   }
 }
 
