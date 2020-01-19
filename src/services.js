@@ -2,16 +2,6 @@ export function getExercises() {
   return fetch('/exercises').then(res => res.json())
 }
 
-/* export function postExercise(exercise) {
-  return fetch('/exercises', {
-    method: 'POST',
-    body: JSON.stringify(exercise),
-    headers: {
-      'content-type': 'application/json',
-    },
-  }).then(res => res.json())
-} */
-
 export function patchExercise(exercise) {
   return fetch('/exercises/' + exercise._id, {
     method: 'PATCH',

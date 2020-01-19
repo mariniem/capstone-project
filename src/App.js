@@ -27,10 +27,9 @@ export default function App() {
     getWorkouts().then(setWorkouts)
   }, [])
 
-  //if (isLogged === false) {
-  return <Login onLogged={onLogged}></Login>
-  //‚}
-
+  if (isLogged === false) {
+    return <Login onLogged={onLogged}></Login>
+  }
   if (workouts.length === 0 || exercises.length === 0) return <p>Lade...</p>
 
   return (
